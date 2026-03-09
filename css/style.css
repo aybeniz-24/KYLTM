@@ -19,6 +19,24 @@ header {
     object-fit: cover;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
+    height: 30px !important;
+    width: 30px !important;
+    background: rgb(0, 0, 0, 0.4);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.swiper-button-next {
+    margin-right: 20px;
+}
+
+.swiper-button-prev {
+    margin-left: 20px !important;
+}
+
 nav {
     position: absolute;
     top: 0;
@@ -26,19 +44,20 @@ nav {
     width: 100%;
     height: 94px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     z-index: 1;
-
+    padding: 0 20px;
     margin: 0 auto;
 }
-.navHr{
+
+.navHr {
+    width: 90%;
     position: absolute;
-    top: 94px;      
+    top: 94px;
     left: 50%;
     transform: translateX(-50%);
-    
-    width: 80%;
+
     border: 1px solid white;
 
     z-index: 20;
@@ -83,22 +102,107 @@ nav {
     margin-bottom: 20px;
     display: block;
 }
-.menu{
+
+.menu {
     display: none;
 }
 
-
-
-
-
-@media (min-width:768px){
-
-.menu{
-    display:flex;
+.lang {
+    display: flex;
+    align-items: center;
+    gap: 20;
+    color: white;
 }
 
-.bar{
-    display:none;
+.langDropdown,
+.search {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin: 0 10px;
+    padding: 9px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
+
+.langDropdown {
+    position: relative;
+}
+
+.langList {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    left: 10;
+    background: rgba(186, 186, 186, 0.3);
+    border: 1px solid;
+    padding: 6px 8px;
+    display: none;
+    font-size: 16px;
+}
+
+.langDropdown.active .langList {
+    display: block;
+}
+
+
+@media only screen and (min-width: 400px) {
+    nav {
+
+        padding: 0 40px;
+    }
+
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .menu {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 18px;
+    }
+
+    .menu li {
+        margin-left: 30px;
+        i{
+            margin: 8px;
+        }
+    }
+
+    .menu li:first-child {
+        margin-left: 0;
+    }
+
+    .bar {
+        display: none;
+    }
+
+    .navHr {
+        width: 96%;
+
+    }
+
+    .logo {
+        width: 300px;
+        height: 46px;
+    }
+
+    .logoText p:first-child,
+    .logoText p:nth-child(2) {
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    .logoText p:last-child {
+        font-weight: 400;
+        font-size: 12px;
+    }
+
 
 }
