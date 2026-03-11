@@ -19,7 +19,6 @@
     <header>
         <div class="swiper headerSwiper">
             <div class="swiper-wrapper">
-
                 <div class="swiper-slide">
                     <img src="./img/header_bg1.jpg" alt="">
                 </div>
@@ -27,14 +26,12 @@
                 <div class="swiper-slide">
                     <img src="./img/header_bg2.jpg" alt="">
                 </div>
-
-
             </div>
 
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-
         </div>
+
         <nav>
             <div class="logo">
                 <img src="./img/logo.svg" alt="logo">
@@ -48,54 +45,134 @@
 
             <div>
                 <ul class="menu">
-                    <li><a href="#">Haqqımızda <i class="fa-solid fa-caret-down"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#">Haqqımızda <i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Təşkilat haqqında</a></li>
+                            <li><a href="#">Structur</a></li>
+                            <li><a href="#">Beynəlxalq əlaqə</a></li>
+                            <li><a href="#">Bunları bilmək faydalıdır</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">Xidmətlər</a></li>
                     <li><a href="#">Layihələr</a></li>
-                    <li><a href="#">Media <i class="fa-solid fa-caret-down"></i></a></li>
-                    <li><a href="#">Əlaqə <i class="fa-solid fa-caret-down"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#">Media <i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Xəbərlər</a></li>
+                            <li><a href="#">Qalereya</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Əlaqə <i class="fa-solid fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#">Ünvan</a></li>
+                            <li><a href="#">Bizə yazın</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#">Karyera</a></li>
                 </ul>
             </div>
 
 
 
-            
-
-
             <div class="lang">
-
                 <div class="langDropdown">
                     <div class="currentLang">AZ</div>
-
                     <div class="langList">
                         <div>EN</div>
                     </div>
                 </div>
-
                 <div class="search">
                     <i class="fa-brands fa-sistrix"></i>
                 </div>
-
             </div>
-
-
-
             <div class="bar">
                 <i class="fa-solid fa-bars"></i>
             </div>
-
         </nav>
-
 
         <hr class="navHr" />
 
+        <div class="headerText">
+            <p>Kadastr və torpaq idarəçiliyi sahəsində aparıcı ekspert</p>
+            <p>Dövlət kadastrlarının dəqiq yenilənməsi və idarə edilməsi</p>
+        </div>
     </header>
 
 
 
 
     <main></main>
-    <footer></footer>
+
+
+    <footer>
+        <div class="footerTop">
+
+            <div class="form">
+                <h1>Layihəni bizimlə başlamağa hazırsınız?</h1>
+                <h2>Bir sorğu göndərin!</h2>
+
+
+                <div class="footerFlex">
+                    <div class="contactForm">
+
+                        <form>
+                            <input type="text" placeholder="Ad*">
+                            <input type="text" placeholder="Soyad*">
+                            <input type="email" placeholder="E-mail*">
+
+                            <button type="submit" class="sendBtn">
+                                Göndər <span>→</span>
+                            </button>
+                        </form>
+
+                    </div>
+                    <div class="footerMenu">
+                        <ul>
+                            <li><a href="#">Təşkilat haqqında</a></li>
+                            <li><a href="#">Beynalxalq əlaqə</a></li>
+                            <li><a href="#">Structur</a></li>
+                            <li><a href="#">Xəbərlər</a></li>
+                            <li><a href="#">Karyera</a></li>
+
+                        </ul>
+                    </div>
+
+
+                    <div class="footerMenu">
+                        <ul>
+                            <li><a href="#">Əlaqə</a>
+                                <p>Azərbaycan, Bakı şəhəri, Heydər Əliyev Prospekti 1038</p>
+                                <p>(994-12) 480 42 20</p>
+                                <p>office@kyltm.gov.az</p>
+
+                            </li>
+                        </ul>
+                        <div class="contactIcon">
+                            <i class="fa-brands fa-square-x-twitter"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-facebook-f"></i>
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="footerBottom">
+            <p> © <span id="year"> </span> - Kadastr və Yerquruluşu Layihə Tədqiqat Mərkəzi</p>
+            <p>Qaydalar, şərtlər və məxfilik səhifəsi</p>
+        </div>
+
+
+    </footer>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="./js/javascript.js"></script>
 
