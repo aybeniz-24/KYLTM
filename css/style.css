@@ -275,6 +275,14 @@ main {
     padding: 40px 20px;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    /* yuxarı-aşağı */
+    gap: 40px;
+    /* divlər arasındakı məsafə */
+}
+
 .title {
     font: 600 24px/32px Inter;
     color: #1D9F6F;
@@ -299,7 +307,7 @@ main {
     padding: 20px 0;
 }
 
-.counterSection hr {
+.mainHR {
     border-width: 1px;
     opacity: 10%;
     border: 1px solid #000000;
@@ -318,12 +326,78 @@ main {
     color: #0C242A;
 }
 
+.accordionBox {
+    display: flex;
+    justify-content: space-between;
+
+}
+.accordionBox i{
+    color: #1D9F6F;
+}
+
+.accordionBox span {
+    color: #6E7576;
+    font-size: 14px;
+    vertical-align: super;
+    padding: 2px 6px;
+}
+.accordionBoxText p{ 
+    padding: 20px;
+    color: #6E7576;
+    font-size: 24px;
+    line-height: 38px;
+}
+
+.accordionBoxText {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.1s ease;
+}
 
 
+.accordionBoxText {
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-20px); 
+    opacity: 0;
+    transition: all 0.8s ease;
+}
 
+.accordionItem.active .accordionBoxText {
+    max-height: 500px;
+    transform: translateY(0); 
+    opacity: 1;
+}
+.plusIcon {
+    display: inline;
+}
 
+.minusIcon {
+    display: none !important;
+}
 
+.accordionBtn {
+    background: none;
+    font: 600 24px/32px Inter;
+    color: #0C242A;
+}
 
+.accordionItem.active .accordionBtn {
+    color: #1D9F6F;
+    transition: max-height 0.9s ease;
+}
+
+.accordionItem.active .accordionBoxText {
+    max-height: 500px;
+}
+
+.accordionItem.active .plusIcon {
+    display: none !important;
+}
+
+.accordionItem.active .minusIcon {
+    display: inline !important;
+}
 
 
 
@@ -367,11 +441,17 @@ main {
 
 /* Böyük ekran: ≥795px */
 @media only screen and (min-width: 795px) {
+    .Services {
+        background: url(../img/ServicesBg.png) no-repeat right;
+        background-size: contain;
+        width: 100%;
+    }
+
     main {
         padding: 40px;
     }
 
- 
+
     .aboutWrapper {
         display: flex;
         flex-direction: row;
@@ -380,7 +460,7 @@ main {
     }
 
     .aboutLeft {
-        flex: 1; 
+        flex: 1;
         display: flex;
         flex-direction: column;
         gap: 40px;
@@ -388,14 +468,20 @@ main {
 
     .haqqindaIMG {
         width: 50%;
-        aspect-ratio: 16 / 9;  
+        aspect-ratio: 16 / 9;
         background: url(../img/haqqindaImg.jpg) no-repeat center;
         background-size: cover;
     }
-    .mainText{
-        font-size: 18px;
+
+    .mainText {
+        font-size: 22px;
+        line-height: 38px;
     }
-  
+
+    .title {
+        font-size: 32px;
+    }
+
 
     nav {
         padding: 30px;
@@ -617,17 +703,21 @@ main {
 
 /* Orta ekran: ≤1200px */
 @media (max-width:1200px) {
-     .aboutWrapper {
-        gap: 20px; 
+    .aboutWrapper {
+        gap: 20px;
     }
 
     .haqqindaIMG {
-        width: 50%;  
+        width: 50%;
         aspect-ratio: 16 / 9;
     }
 
-    .mainText{
+    .mainText {
         font-size: 16px;
+    }
+
+    .title {
+        font-size: 28px;
     }
 
     nav {
@@ -754,8 +844,8 @@ main {
     }
 
     .haqqindaIMG {
-        width: 100%;            
-        aspect-ratio: 16 / 9;     
+        width: 100%;
+        aspect-ratio: 16 / 9;
         background: url(../img/haqqindaImg.jpg) no-repeat center;
         background-size: cover;
     }

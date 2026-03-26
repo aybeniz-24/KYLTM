@@ -15,11 +15,29 @@ var swiper = new Swiper(".headerSwiper", {
 
 
 
+
+
+
+
+
+
 // dil secimi
 const lang = document.querySelector(".langDropdown");
 lang.addEventListener("click", () => {
     lang.classList.toggle("active");
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -36,18 +54,15 @@ dropdowns.forEach(item => {
     let icon = this.querySelector("i");
     let isOpen = submenu.classList.contains("active");
 
-    // bütün submenuları bağla
     document.querySelectorAll(".submenu").forEach(menu=>{
       menu.classList.remove("active");
     });
 
-    // bütün ikonları reset et
     document.querySelectorAll(".dropdown i").forEach(i=>{
       i.classList.remove("fa-caret-up");
       i.classList.add("fa-caret-down");
     });
 
-    // əgər klik olunan əvvəl açıq deyildisə aç
     if(!isOpen){
       submenu.classList.add("active");
       icon.classList.remove("fa-caret-down");
@@ -56,6 +71,15 @@ dropdowns.forEach(item => {
 
   });
 });
+
+
+
+
+
+
+
+
+
 
 
 // copyright
@@ -70,31 +94,9 @@ document.getElementById("year").textContent = year;
 
 
 
-const brandSwiper = new Swiper(".brandSwiper", {
-    slidesPerView: 2,       // Telefon üçün 2 sütun
-    spaceBetween: 20,
-    navigation: {
-        nextEl: ".swiper-button-next-brand",
-        prevEl: ".swiper-button-prev-brand",
-    },
-    breakpoints: {
-        795: {               // 795–1200px
-            slidesPerView: 4,
-            spaceBetween: 20,
-        },
-        1200: {              // Desktop
-            slidesPerView: 6,
-            spaceBetween: 40,
-        }
-    },
-});
 
 
-
-
-
-
-
+// counter
 const counters = document.querySelectorAll(".counter");
 
 function startCounter() {
@@ -133,3 +135,36 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.5 });
 
 observer.observe(document.querySelector(".counterSection"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// accordion
+const accordionItems = document.querySelectorAll(".accordionItem");
+
+accordionItems.forEach(item => {
+    const btn = item.querySelector(".accordionBox");
+
+    btn.addEventListener("click", () => {
+        // Toggle cari item
+        item.classList.toggle("active");
+
+        // Əgər istəsən bütün digərləri bağla:
+        accordionItems.forEach(otherItem => {
+            if(otherItem !== item) {
+                otherItem.classList.remove("active");
+            }
+        });
+    });
+});
