@@ -61,3 +61,75 @@ dropdowns.forEach(item => {
 // copyright
 let year = new Date().getFullYear();
 document.getElementById("year").textContent = year;
+
+
+
+
+
+
+
+
+
+const brandSwiper = new Swiper(".brandSwiper", {
+    slidesPerView: 2,       // Telefon üçün 2 sütun
+    spaceBetween: 20,
+    navigation: {
+        nextEl: ".swiper-button-next-brand",
+        prevEl: ".swiper-button-prev-brand",
+    },
+    breakpoints: {
+        795: {               // 795–1200px
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+        1200: {              // Desktop
+            slidesPerView: 6,
+            spaceBetween: 40,
+        }
+    },
+});
+
+
+
+
+
+
+
+const counters = document.querySelectorAll(".counter");
+
+function startCounter() {
+    counters.forEach(counter => {
+        counter.innerText = 0;
+
+        const target = +counter.dataset.target;
+        const speed = 200;
+        const increment = target / speed;
+
+        function updateCounter() {
+            const value = +counter.innerText;
+
+            if (value < target) {
+                counter.innerText = Math.ceil(value + increment);
+                setTimeout(updateCounter, 10);
+            } else {
+                if (target === 50) {
+                    counter.innerText = target + "+";
+                } else {
+                    counter.innerText = target;
+                }
+            }
+        }
+
+        updateCounter();
+    });
+}
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startCounter();
+        }
+    });
+}, { threshold: 0.5 });
+
+observer.observe(document.querySelector(".counterSection"));

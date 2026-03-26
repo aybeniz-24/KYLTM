@@ -110,57 +110,28 @@ header {
     position: relative;
 }
 
-/* .headerText {
+.headerText {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    color: white;
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 60px;
-    line-height: 48px;
-}
-.headerText p{
-    margin: 20px;
-}
-
-.headerText p:last-child {
-    font-family: Inter;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 17px;
-    line-height: 25px;
-    letter-spacing: 0%;
-} */
-
-.headerText{
-    position: absolute;
-    top: 50%;
-    left: 80px;                 /* soldan məsafə */
+    left: 80px;
     transform: translateY(-50%);
     z-index: 10;
     color: white;
     font-family: Inter;
-    max-width: 600px;           /* uzun yazının daşmaması üçün */
+    max-width: 600px;
 }
 
-.headerText p{
+.headerText p {
     margin: 20px 0;
 }
 
-/* Başlıq */
-.headerText p:first-child{
+.headerText p:first-child {
     font-weight: 700;
     font-size: 40px;
     line-height: 48px;
 }
 
-/* Alt mətn */
-.headerText p:last-child{
+.headerText p:last-child {
     font-weight: 400;
     font-size: 17px;
     line-height: 25px;
@@ -257,6 +228,7 @@ footer {
 
 .contactIcon {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     padding: 24px 0;
 }
@@ -299,9 +271,132 @@ footer {
     align-items: center;
 }
 
+main {
+    padding: 40px 20px;
+}
+
+.title {
+    font: 600 24px/32px Inter;
+    color: #1D9F6F;
+}
+
+.mainText {
+    color: #6E7576;
+    font: 400 14px/22px Inter;
+    padding: 16px 0;
+}
 
 
+.aboutLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+
+.counterSection {
+    padding: 20px 0;
+}
+
+.counterSection hr {
+    border-width: 1px;
+    opacity: 10%;
+    border: 1px solid #000000;
+    margin: 20px 0;
+
+}
+
+.counter {
+    font: 700 40px/56px Inter;
+    color: #1C4734;
+    padding-right: 20px;
+}
+
+.counterText {
+    font: 400 16px / 22px;
+    color: #0C242A;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Böyük ekran: ≥795px */
 @media only screen and (min-width: 795px) {
+    main {
+        padding: 40px;
+    }
+
+ 
+    .aboutWrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    .aboutLeft {
+        flex: 1; 
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .haqqindaIMG {
+        width: 50%;
+        aspect-ratio: 16 / 9;  
+        background: url(../img/haqqindaImg.jpg) no-repeat center;
+        background-size: cover;
+    }
+    .mainText{
+        font-size: 18px;
+    }
+  
+
     nav {
         padding: 30px;
     }
@@ -442,27 +537,99 @@ footer {
     .footerFlex {
         gap: 200px;
     }
-.headerText{
-    left: 60px;
-    max-width: 600px;
+
+    .headerText {
+        left: 60px;
+        max-width: 600px;
+    }
+
+    .headerText p:first-child {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    .headerText p:last-child {
+        font-size: 17px;
+        line-height: 25px;
+    }
+
 }
 
-.headerText p:first-child{
-    font-size: 40px;
-    line-height: 48px;
-}
-
-.headerText p:last-child{
-    font-size: 17px;
-    line-height: 25px;
-}
-        
-}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Orta ekran: ≤1200px */
 @media (max-width:1200px) {
+     .aboutWrapper {
+        gap: 20px; 
+    }
+
+    .haqqindaIMG {
+        width: 50%;  
+        aspect-ratio: 16 / 9;
+    }
+
+    .mainText{
+        font-size: 16px;
+    }
+
     nav {
         padding: 10px;
         gap: 2px;
@@ -530,22 +697,66 @@ footer {
     .footerFlex {
         gap: 50px;
     }
-.headerText{
-    position: absolute;
-    top: 50%;
-    left: 40px;
-    transform: translateY(-50%);
-    max-width: 500px;
+
+    .headerText {
+        position: absolute;
+        top: 50%;
+        left: 40px;
+        transform: translateY(-50%);
+        max-width: 500px;
+    }
+
+    .headerText p:first-child {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .headerText p:last-child {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
 }
 
-.headerText p:first-child{
-    font-size: 32px;
-    line-height: 40px;
-}
 
-.headerText p:last-child{
-    font-size: 16px;
-    line-height: 24px;
-}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Kiçik ekran: ≤794px */
+@media only screen and (max-width: 794px) {
+    .aboutWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .haqqindaIMG {
+        width: 100%;            
+        aspect-ratio: 16 / 9;     
+        background: url(../img/haqqindaImg.jpg) no-repeat center;
+        background-size: cover;
+    }
 }
