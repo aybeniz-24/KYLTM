@@ -403,24 +403,24 @@ main {
     display: inline !important;
 }
 
-
 .slider {
     position: relative;
-    /* width: 100%; */
     margin: 40px 0;
-    /* height: 680px; */
+    width: 100%;
+    height: clamp(300px, 50vw, 680px);
     overflow: hidden;
 }
 
+
 .slides {
     position: relative;
+    height: 80%;
 }
-
 .slide {
-    display: none;
-    position: relative;
-    width: 100%;
-    
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
 .slide::after {
@@ -428,34 +428,40 @@ main {
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-            rgba(0, 0, 0, 0) 50%,
-            rgba(0, 0, 0, 0.7) 100%);
+            rgba(0, 0, 0, 0) 40%,
+            rgba(0, 0, 0, 0.75) 100%);
 }
 
 
 .slide.active {
-    display: block;
+    opacity: 1;
+    z-index: 2;
 }
+
+
 
 .slide img {
     width: 100%;
-    display: block;
-    object-fit: contain;
-
+    height: 100%;
+    object-fit: cover;
 }
+
 
 
 .slideText {
     position: absolute;
-    bottom: 10%;
+    bottom: 12%;
     left: 5%;
+
     color: white;
     z-index: 20;
-    font-size: 16px !important;
+
+    font-size: clamp(14px, 2.2vw, 28px);
     line-height: 1.3;
     font-weight: 600;
     font-family: "Inter";
 
+    width: clamp(200px, 45%, 600px);
 }
 
 .sliderControls button {
@@ -479,6 +485,34 @@ main {
 
 
 
+.partnersSlider {
+	display: flex;
+    flex-direction: row;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 2.5rem;
+}
+.item {
+	animation: animate 25s linear infinite;
+}
+.item img
+	{
+		max-width: 200px;
+		padding: 0 30px;
+	}
+.partnersSlider:hover .item {
+	animation-play-state: paused;
+}
+@keyframes animate {
+	0% {
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		transform: translate3d(-1800px, 0, 0);
+	}
+}
+
 
 
 
@@ -494,6 +528,10 @@ main {
 
 /* Böyük ekran: ≥795px */
 @media only screen and (min-width: 795px) {
+    .slides {
+        height: 100%;
+    }
+
     .sliderControls button {
         width: 40px;
         height: 40px;
@@ -501,7 +539,7 @@ main {
     }
 
     .slideText {
-        bottom: 10%;
+        bottom: 40%;
         font-size: 28px !important;
     }
 
@@ -768,6 +806,10 @@ main {
 
 /* Orta ekran: ≤1200px */
 @media (max-width:1200px) {
+    .slides {
+        height: 90%;
+    }
+
     .sliderControls button {
         width: 35px;
         height: 35px;
@@ -775,8 +817,8 @@ main {
     }
 
     .slideText {
-        bottom: 10%;
-        font-size: 22px !important;
+        bottom: 30%;
+        font-size: 18px !important;
     }
 
     .aboutWrapper {
@@ -913,6 +955,34 @@ main {
 
 /* Kiçik ekran: ≤794px */
 @media only screen and (max-width: 794px) {
+
+    .partnersSlide{
+        grid-template-columns: repeat(2,1fr);
+        gap:20px;
+    }
+
+
+
+    .accordionBox span {
+        font-size: 14px;
+        padding: 2px 6px;
+    }
+
+    .sliderControls button {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .slideText {
+        bottom: 10%;
+        font-size: 16px !important;
+    }
+
+    .accordionBtn {
+        font-size: 16px;
+    }
+
     .aboutWrapper {
         display: flex;
         flex-direction: column;
@@ -926,3 +996,19 @@ main {
         background-size: cover;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

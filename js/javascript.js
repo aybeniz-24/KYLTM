@@ -218,3 +218,14 @@ index = slides.length - 1;
 showSlide(index);
 
 }
+
+
+
+
+
+
+
+
+
+
+
