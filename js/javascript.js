@@ -228,10 +228,21 @@ showSlide(index);
 
 
 // partners slider 
-const track = document.querySelector(".track");
-const items = [...track.children];
+const track = document.querySelector('.track');
+const items = track.children;
+let speed = 1; 
 
-items.forEach(item=>{
-    const clone = item.cloneNode(true);
-    track.appendChild(clone);
-});
+function animateSlider() {
+  track.style.transform = `translateX(${-speed}px)`;
+  speed += 1;
+
+
+  if (speed >= items[0].offsetWidth + 30) {
+    track.appendChild(items[0]); 
+    speed = 0;
+  }
+
+  requestAnimationFrame(animateSlider);
+}
+
+animateSlider();

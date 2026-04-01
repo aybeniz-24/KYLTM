@@ -483,33 +483,24 @@ main {
     justify-content: space-between;
 }
 
+
+
 .partnersSlider {
-	display: flex;
-	width: 100%;
-	overflow: hidden;
-	padding: 2.5rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 2.5rem 0;
+  position: relative;
 }
 
-.track{
-	display:flex;
-	animation: animate 25s linear infinite;
+.track {
+  display: flex;
+  gap: 30px;
 }
 
-.item img{
-	max-width:200px;
-	padding:0 30px;
+.item img {
+  max-width: 200px;
+  display: block;
 }
-
-@keyframes animate{
-	from{
-		transform: translateX(0);
-	}
-	to{
-		transform: translateX(-100%);
-	}
-}
-
-
 
 
 
