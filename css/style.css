@@ -483,33 +483,29 @@ main {
     justify-content: space-between;
 }
 
-
-
 .partnersSlider {
 	display: flex;
-    flex-direction: row;
 	width: 100%;
-	margin: 0 auto;
 	overflow: hidden;
 	padding: 2.5rem;
 }
-.item {
+
+.track{
+	display:flex;
 	animation: animate 25s linear infinite;
 }
-.item img
-	{
-		max-width: 200px;
-		padding: 0 30px;
-	}
-.partnersSlider:hover .item {
-	animation-play-state: paused;
+
+.item img{
+	max-width:200px;
+	padding:0 30px;
 }
-@keyframes animate {
-	0% {
-		transform: translate3d(0, 0, 0);
+
+@keyframes animate{
+	from{
+		transform: translateX(0);
 	}
-	100% {
-		transform: translate3d(-1800px, 0, 0);
+	to{
+		transform: translateX(-100%);
 	}
 }
 

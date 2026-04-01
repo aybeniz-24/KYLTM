@@ -98,7 +98,6 @@ document.getElementById("year").textContent = year;
 
 // counter
 const counters = document.querySelectorAll(".counter");
-
 function startCounter() {
     counters.forEach(counter => {
         counter.innerText = 0;
@@ -125,7 +124,6 @@ function startCounter() {
         updateCounter();
     });
 }
-
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -229,3 +227,11 @@ showSlide(index);
 
 
 
+// partners slider 
+const track = document.querySelector(".track");
+const items = [...track.children];
+
+items.forEach(item=>{
+    const clone = item.cloneNode(true);
+    track.appendChild(clone);
+});
