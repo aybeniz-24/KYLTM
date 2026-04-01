@@ -416,6 +416,7 @@ main {
     position: relative;
     height: 80%;
 }
+
 .slide {
     position: absolute;
     inset: 0;
@@ -484,29 +485,68 @@ main {
 }
 
 
-
 .partnersSlider {
-  width: 100%;
-  overflow: hidden;
-  padding: 2.5rem 0;
-  position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 2.5rem 0;
+    position: relative;
 }
 
 .track {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    gap: 30px;
 }
 
 .item img {
-  max-width: 200px;
-  display: block;
+    max-width: 200px;
+    display: block;
 }
 
 
+.mediaCard img {
+    width: 100%;
+    height: 226px;
+    object-fit: cover;
+}
 
 
+.mediaCards {
+    width: 100%;
+    padding: 50px 0;
+}
 
 
+.mediaCard span {
+    color: #6E7576;
+    display: block;
+    text-transform: uppercase;
+    padding: 18px 0;
+}
+
+.mediaCard p {
+    color: #0C242A;
+    font: 600 18px/25px ;
+     font: 600 17px/25px 'Inter', sans-serif;
+}
+
+.imgBox{
+    position:relative;
+}
+
+.imgBox img{
+    width:100%;
+    height:226px;
+    object-fit:cover;
+    display:block;
+}
+
+.imgBox::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: #0000001A;
+
+}
 
 
 
@@ -515,6 +555,20 @@ main {
 
 /* Böyük ekran: ≥795px */
 @media only screen and (min-width: 795px) {
+    .mediaCards {
+        display: flex;
+        gap: 20px;
+    }
+
+    .mediaCard {
+        flex: 1;
+    }
+
+    .mediaCards {
+        display: flex;
+        flex-direction: row;
+    }
+
     .slides {
         height: 100%;
     }
@@ -793,6 +847,11 @@ main {
 
 /* Orta ekran: ≤1200px */
 @media (max-width:1200px) {
+    .mediaCards {
+        display: flex;
+        flex-direction: row;
+    }
+
     .slides {
         height: 90%;
     }
@@ -943,9 +1002,20 @@ main {
 /* Kiçik ekran: ≤794px */
 @media only screen and (max-width: 794px) {
 
-    .partnersSlide{
-        grid-template-columns: repeat(2,1fr);
-        gap:20px;
+    .mediaCards {
+        display: block;
+    }
+
+    .mediaCard {
+        margin-bottom: 20px;
+    }
+
+
+
+
+    .partnersSlide {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 
 
@@ -983,19 +1053,3 @@ main {
         background-size: cover;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
