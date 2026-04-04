@@ -1,7 +1,7 @@
 header {
     width: 100%;
     height: 100vh;
-    background: url(/img/header_bg1.jpg) no-repeat ;
+    background: url(/img/header_bg1.jpg) no-repeat;
     background-size: cover;
 }
 
@@ -28,6 +28,14 @@ nav img {
     font-size: 30px;
     padding: 10px 0;
     cursor: pointer;
+}
+
+.desktopMenu {
+    display: none;
+}
+
+.desktopMenu .lang {
+    display: none;
 }
 
 .mobileMenu {
@@ -83,6 +91,10 @@ body.no-scroll {
     padding: 20px;
 }
 
+.mobilLoqo {
+    display: block;
+}
+
 .navHr {
     width: 96%;
     position: absolute;
@@ -99,11 +111,13 @@ body.no-scroll {
     border: 1px solid #A7A7A7 !important;
     margin: 0 20px;
 }
-.fa-caret-down{
+
+.fa-caret-down {
     font-size: 20px;
     padding: 10px;
 }
-.menu{
+
+.menu {
     color: #1C4734;
     margin: 0 20px;
 }
@@ -151,16 +165,18 @@ body.no-scroll {
     position: relative;
 }
 
-.langDropdown, .langList,
+.langDropdown,
+.langList,
 .search {
     border: 1px solid #DEDEDE;
     padding: 16px;
     font-size: 20px;
     cursor: pointer;
 }
+
 .langDropdown:hover,
 .langList div:hover,
-.search:hover{
+.search:hover {
     background: #f0f0f0;
     backdrop-filter: blur(5px);
 }
@@ -182,73 +198,74 @@ li.active .fa-caret-down {
 .langDropdown.active .langList {
     display: block;
 }
-.searchTop i{
+
+.searchTop i {
     font-size: 32px;
     color: #6E7576;
     padding: 15px;
 }
 
 
-.searchOverlay{
+.searchOverlay {
     position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background: rgba(255,255,255,0.95);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
-    display:none;
+    display: none;
     flex-direction: column;
     padding: 20px;
     z-index: 999;
 }
 
-.searchTop{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
+.searchTop {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.searchTop input{
-    flex:1;
-    padding:12px;
-    font-size:18px;
-    border-radius:4px;
-    border: none;        
-    outline: none;       
+.searchTop input {
+    flex: 1;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
     color: #656565;
 }
 
-.searchTop button{
-    padding:10px 20px;
-    font-size:18px;
-    cursor:pointer;
-    border:none;
+.searchTop button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
     background: none;
     color: #6E7576;
 }
 
 
-.searchResults{
-    margin-top:20px;
-    max-height:80vh;
-    overflow-y:auto;
+.searchResults {
+    margin-top: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
-.resultItem{
-    padding:10px;
-    cursor:pointer;
-    border-bottom:1px solid #eee;
+.resultItem {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
 }
 
-.resultItem:hover{
-    background:#f0f0f0;
+.resultItem:hover {
+    background: #f0f0f0;
 }
 
 .resultItem::before {
-    content: "→";      
-    margin-right: 10px; 
-    color: #555;      
+    content: "→";
+    margin-right: 10px;
+    color: #555;
     font-weight: bold;
 }
 
@@ -687,7 +704,161 @@ main {
 
 /* Böyük ekran: ≥795px */
 @media only screen and (min-width: 795px) {
-    .bar,  .mobileMenu{
+
+    .menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 25px;
+    }
+
+    .menu li {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .menu li ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        list-style: none;
+        margin: 0;
+        min-width: 200px;
+        display: none;
+        z-index: 100;
+    }
+
+    .menu li:hover>ul {
+        display: block;
+    }
+
+    .menu li ul li {
+        padding: 8px 15px;
+        white-space: nowrap;
+        color: #0C242A;
+    }
+
+    .menu li ul li:hover {
+        background: #eee;
+    }
+
+
+    .desktopMenu .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .desktopMenu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+    }
+
+
+    .headerTools {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        gap: 14px;
+    }
+
+    .searchOverlay {
+        background: white;
+        height: 500px;
+    }
+
+    .mobilLoqo {
+        display: none;
+    }
+
+    .currentLanguage,
+    .searchButton {
+        padding: 18px;
+        border: 1px solid #A7A7A7;
+    }
+
+    .languageDropdown {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .languageOptions {
+        position: absolute;
+        top: 90%;
+        left: 10px;
+        background: white;
+        border: 1px solid #ddd;
+        display: none;
+        min-width: 50px;
+    }
+
+    .languageOptions div {
+        padding: 8px;
+    }
+
+    .languageOptions div:hover {
+        background: #eee;
+    }
+
+    .languageDropdown.active .languageOptions {
+        display: block;
+    }
+
+
+
+    .languageOptions {
+        color: white;
+        background: transparent !important;
+        backdrop-filter: blur(5px);
+        padding: 10px;
+    }
+
+    .languageOptions div:hover {
+        color: white;
+        background: transparent !important;
+    }
+
+    .langheaderTools {
+        display: flex !important;
+        padding: 0;
+        color: white;
+        background: none;
+    }
+
+    .languageDropdown,
+    .search {
+        padding: 10px;
+    }
+
+    .currentLanguage:hover,
+    .searchButton:hover,
+    .languageOptions:hover {
+        background: transparent !important;
+        backdrop-filter: blur(5px);
+    }
+
+    nav {
+        padding: 20px 40px
+    }
+
+
+
+    .menu li {
+        padding: 10px;
+        color: white;
+    }
+
+
+
+    .bar,
+    .mobileMenu {
         display: none;
     }
 
@@ -840,6 +1011,7 @@ main {
 
 /* Orta ekran: ≤1200px */
 @media (max-width:1200px) {
+    
 
     .mediaCards {
         display: flex;

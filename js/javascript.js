@@ -41,9 +41,19 @@ langItems.forEach(item => {
 
 
 
+const languageDropdown = document.querySelector(".languageDropdown");
 
+languageDropdown.addEventListener("click", () => {
+    languageDropdown.classList.toggle("active");
+});
 
+document.addEventListener("click", (e) => {
 
+    if (!languageDropdown.contains(e.target)) {
+        languageDropdown.classList.remove("active");
+    }
+
+});
 
 
 
@@ -87,8 +97,8 @@ searchInput.addEventListener("input", () => {
     const value = searchInput.value.toLowerCase();
     searchResults.innerHTML = "";
 
-    if(value){
-        const filtered = searchableElements.filter(el => 
+    if (value) {
+        const filtered = searchableElements.filter(el =>
             el.textContent.toLowerCase().includes(value)
         );
 
@@ -99,14 +109,14 @@ searchInput.addEventListener("input", () => {
 
             // klik → scroll
             div.addEventListener("click", () => {
-                el.scrollIntoView({behavior:"smooth", block:"start"});
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
                 closeSearch.click();
             });
 
             searchResults.appendChild(div);
         });
 
-        if(filtered.length === 0){
+        if (filtered.length === 0) {
             searchResults.innerHTML = "<div>Heç bir nəticə tapılmadı</div>";
         }
     }
@@ -117,6 +127,17 @@ searchInput.addEventListener("input", () => {
 
 
 
+const searchIcons = document.querySelectorAll(".searchButton");
+
+searchIcons.forEach(icon => {
+    icon.addEventListener("click", () => {
+        searchOverlay.style.display = "flex";
+        logoClose.style.display = "none";
+        menuHR.style.display = "none";
+        menuDiv.style.display = "none";
+        searchInput.focus();
+    });
+});
 
 
 
