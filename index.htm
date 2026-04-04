@@ -13,92 +13,119 @@
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <header>
-        <div class="swiper headerSwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="./img/header_bg1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                    <img src="./img/header_bg2.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-
         <nav>
-            <div class="logo">
-                <img src="./img/logo.svg" alt="logo">
-
-                <div class="logoText">
-                    <p class="">KADASTR VƏ YERQURULUŞU</p>
-                    <p class="">LAYİHƏ - TƏDQİQAT MƏRKƏZİ</p>
-                    <p class="">MƏHDUD MƏSULİYYƏTLİ CƏMİYYƏT</p>
-                </div>
-            </div>
-
             <div>
+                <img src="/img/loqoHeader.svg" alt="loqo" />
+            </div>
+            
+            <div class="bar">
+                <i class="fa-solid fa-bars" id="openMenu"></i>
+            </div>
+        </nav>
+        <div class="mobileMenu" id="mobileMenu">
+            <div>
+                <div class="logoClose">
+
+                    <div>
+                        <img src="/img/menuLogo.svg" alt="loqo" />
+                    </div>
+                    <div class="closeBtn">
+                        <i class="fa-solid fa-xmark" id="closeMenu"></i>
+                    </div>
+
+                </div>
+                <hr class="menuHR" />
+
                 <ul class="menu">
-                    <li class="dropdown">
-                        <a href="#">Haqqımızda <i class="fa-solid fa-caret-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="#">Təşkilat haqqında</a></li>
-                            <li><a href="#">Structur</a></li>
-                            <li><a href="#">Beynəlxalq əlaqə</a></li>
-                            <li><a href="#">Bunları bilmək faydalıdır</a></li>
+                    <li>Haqqımızda<i class="fa-solid fa-caret-down"></i>
+                        <ul>
+                            <li>Təşkilat haqqında</li>
+                            <li>Structur</li>
+                            <li>Beynəlxalq əlaqə</li>
+                            <li>Bunları bilmək faydalıdır</li>
                         </ul>
                     </li>
-                    <li><a href="#">Xidmətlər</a></li>
-                    <li><a href="#">Layihələr</a></li>
-                    <li class="dropdown">
-                        <a href="#">Media <i class="fa-solid fa-caret-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="#">Xəbərlər</a></li>
-                            <li><a href="#">Qalereya</a></li>
+                    <li>Xidmətlər</li>
+                    <li>Layihələr</li>
+                    <li>Media<i class="fa-solid fa-caret-down"></i>
+                        <ul>
+                            <li>text1</li>
+                            <li>text2</li>
+                            <li>text3</li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#">Əlaqə <i class="fa-solid fa-caret-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="#">Ünvan</a></li>
-                            <li><a href="#">Bizə yazın</a></li>
+                    <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
+                        <ul>
+                            <li>text4</li>
+                            <li>text5</li>
+                            <li>text6</li>
                         </ul>
                     </li>
-                    <li><a href="#">Karyera</a></li>
+                    <li>Karyera</li>
                 </ul>
             </div>
 
 
 
-            <div class="lang">
-                <div class="langDropdown">
-                    <div class="currentLang">AZ</div>
-                    <div class="langList">
-                        <div>EN</div>
+            <div>
+                <div class="lang">
+                    <div class="langDropdown">
+                        <div class="currentLang">AZ</div>
+                        <div class="langList">
+                            <div>EN</div>
+                        </div>
                     </div>
+                    <div class="search"> <i class="fa-brands fa-sistrix"></i> </div>
                 </div>
-                <div class="search">
-                    <i class="fa-brands fa-sistrix"></i>
-                </div>
-            </div>
-            <div class="bar">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </nav>
 
+            </div>
+
+
+        </div>
+        <div id="searchOverlay" class="searchOverlay">
+            <div class="searchTop">
+                <i class="fa-brands fa-sistrix"></i>
+                <input type="text" id="searchInput" placeholder="Burada axtarış edin" />
+                <button id="closeSearch">Axtarısı bağlayın</button>
+                
+            </div>
+            <div>
+                 <hr class="menuHR" />
+            </div>
+            <div class="searchResults" id="searchResults"> </div>
+            
+        </div>
         <hr class="navHr" />
+
+
+
+
+
+    </header>
+
+
+    <!-- <div class="lang">
+        <div class="langDropdown">
+            <div class="currentLang">AZ</div>
+            <div class="langList">
+                <div>EN</div>
+            </div>
+        </div>
+        <div class="search"> <i class="fa-brands fa-sistrix"></i> </div>
+    </div> -->
+    <!-- <hr class="navHr" />
 
         <div class="headerText">
             <p>Kadastr və torpaq idarəçiliyi sahəsində aparıcı ekspert</p>
             <p>Dövlət kadastrlarının dəqiq yenilənməsi və idarə edilməsi</p>
-        </div>
-    </header>
+        </div> -->
 
 
 
@@ -358,34 +385,34 @@
 
 
 
-        
+
         <div class="media">
             <p class="title">Media</p>
-       
 
-        <div class="mediaCards">
-            <div class="mediaCard">
-                <div class="imgBox">
-                    <a href="#"><img src="/img/media1.png" alt="mediaImg" /></a>
+
+            <div class="mediaCards">
+                <div class="mediaCard">
+                    <div class="imgBox">
+                        <a href="#"><img src="/img/media1.png" alt="mediaImg" /></a>
+                    </div>
+                    <span>XƏBƏR</span>
+                    <p>İpoteka krediti əldə edən zaman ən çox girov qoyulan əmlaklar</p>
                 </div>
-                <span>XƏBƏR</span>
-                <p>İpoteka krediti əldə edən zaman ən çox girov qoyulan əmlaklar</p>
-            </div>
-            <div class="mediaCard">
-                <div class="imgBox">
-                    <a href="#"><img src="/img/media2.png" alt="mediaImg" /></a>
+                <div class="mediaCard">
+                    <div class="imgBox">
+                        <a href="#"><img src="/img/media2.png" alt="mediaImg" /></a>
+                    </div>
+                    <span>ELAN</span>
+                    <p>Kiçik, orta və iri sahibkarlıq subyektlərinin nəzərinə</p>
                 </div>
-                <span>ELAN</span>
-                <p>Kiçik, orta və iri sahibkarlıq subyektlərinin nəzərinə</p>
-            </div>
-            <div class="mediaCard">
-                <div class="imgBox">
-                    <a href="#"> <img src="/img/media3.jpg" alt="mediaImg" /></a>
+                <div class="mediaCard">
+                    <div class="imgBox">
+                        <a href="#"> <img src="/img/media3.jpg" alt="mediaImg" /></a>
+                    </div>
+                    <span>XƏBƏR</span>
+                    <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
                 </div>
-                <span>XƏBƏR</span>
-                <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
             </div>
-        </div>
         </div>
 
 
