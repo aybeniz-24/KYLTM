@@ -318,3 +318,13 @@ function animateSlider() {
 }
 
 animateSlider();
+
+
+
+
+
+
+
+
+
+
