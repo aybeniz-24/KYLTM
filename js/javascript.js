@@ -328,3 +328,37 @@ animateSlider();
 
 
 
+
+
+function changePage(index){
+    const pages = document.querySelectorAll(".pageGroup");
+    const buttons = document.querySelectorAll(".pageBtn");
+
+    pages.forEach((p,i)=>{
+        p.classList.toggle("activePage", i === index);
+    });
+
+    buttons.forEach((b,i)=>{
+        b.classList.toggle("activeBtn", i === index);
+    });
+}
+
+
+
+
+
+function openDetail(card){
+    const img = card.querySelector("img").src;
+    const text = card.querySelector("p").innerText;
+
+    document.getElementById("detailImg").src = img;
+    document.getElementById("detailText").innerText = text;
+
+    document.getElementById("mainContent").classList.add("hideMain");
+    document.getElementById("newsDetail").classList.add("showDetail");
+}
+
+function goBack(){
+    document.getElementById("mainContent").classList.remove("hideMain");
+    document.getElementById("newsDetail").classList.remove("showDetail");
+}
