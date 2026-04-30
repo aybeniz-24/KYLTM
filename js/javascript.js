@@ -362,3 +362,39 @@ function goBack(){
     document.getElementById("mainContent").classList.remove("hideMain");
     document.getElementById("newsDetail").classList.remove("showDetail");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordionContent = button.nextElementSibling;
+
+        // Aktiv sinfi dəyişdiririk
+        button.classList.toggle('active');
+
+        if (button.classList.contains('active')) {
+            // Açılırsa, hündürlüyü məzmuna görə təyin edirik
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+            button.querySelector('.icon').innerText = "-"; 
+        } else {
+            // Bağlanırsa, hündürlüyü sıfırlayırıq
+            accordionContent.style.maxHeight = 0;
+            button.querySelector('.icon').innerText = "+";
+        }
+
+        // İSTƏYƏ BAĞLI: Biri açılanda digərinin bağlanmasını istəyirsinizsə:
+        
+       
+        
+    });
+});
