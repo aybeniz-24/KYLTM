@@ -113,9 +113,137 @@
             margin: 24px;
         }
 
+        .button {
+            width: 360px;
+            height: 64px;
+            top: 281px;
+            left: 60px;
+            background: rgba(28, 71, 52, 1);
+
+        }
+
+        .buttonDiv{
+            display: flex;
+            margin: 20px;
+        
+        }
 
 
 
+.container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Breadcrumb (Naviqasiya zənciri) */
+        .breadcrumb {
+            font-size: 13px;
+            color: #777777;
+            margin-bottom: 25px;
+        }
+
+        .breadcrumb a {
+            color: #777777;
+            text-decoration: none;
+        }
+
+        .breadcrumb span.active {
+            color: #1e4634; /* Şəkildəki yaşıl tonu */
+            font-weight: 500;
+        }
+
+        .breadcrumb::text {
+            margin: 0 5px;
+        }
+
+        /* Səhifə Başlığı */
+        .page-title {
+            color: #1e4634;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        /* İnfo Blokların Toru (Grid System) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Kompüterdə yan-yana 4 sütun */
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Hər bir info blokun daxili stili */
+        .info-block h3 {
+            font-size: 15px;
+            color: #000000;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .info-block p {
+            font-size: 14px;
+            color: #555555;
+            line-height: 1.8;
+            word-wrap: break-word;
+        }
+
+        /* Xəritə konteyneri */
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ==========================================================
+           RESPONSIVLIK (Mobil və Planşet tənzimləmələri)
+           ========================================================== */
+
+        /* Planşetlər üçün (Ekran 992px-dən kiçik olduqda) */
+        @media screen and (max-width: 992px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr); /* Yan-yana 2 sütun formasına keçir */
+                gap: 25px;
+            }
+            
+            .page-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+        }
+
+        /* Mobil telefonlar üçün (Ekran 600px-dən kiçik olduqda - Şəkildəki sağ tərəf) */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            .page-title {
+                font-size: 28px;
+                margin-bottom: 25px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr; /* Bütün bloklar tam en tutur və alt-alta düzülür */
+                gap: 20px;
+            }
+
+            .info-block h3 {
+                margin-bottom: 8px;
+            }
+
+            .map-container {
+                height: 350px; /* Mobildə xəritə hündürlüyü bir az azaldılır */
+            }
+        }
         @media (max-width: 992px) {
 
 
@@ -163,20 +291,22 @@
                     <div id="content"></div>
                     <li>Structur</li>
                     <li>Beynəlxalq əlaqə</li>
-                   <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
+                    <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                 </ul>
                 </li>
                 <li>Xidmətlər</li>
                 <li>Layihələr</li>
                 <li>Media<i class="fa-solid fa-caret-down"></i>
                     <ul>
-                         <li><a href="News.htm"> Xəbərlər</a></li>
-                            <li><a href="elanlar.htm"> Elanlar</a></li>
+                        <li><a href="News.htm"> Xəbərlər</a></li>
+                        <li><a href="elanlar.htm"> Elanlar</a></li>
                     </ul>
                 </li>
                 <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
                     <ul>
-                        <a href="/faq.htm"> <li>Tez-tez verilən suallar</li></a>
+                        <a href="/faq.htm">
+                            <li>Tez-tez verilən suallar</li>
+                        </a>
                         <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
                         <li>text6</li>
                     </ul>
@@ -233,14 +363,16 @@
                     <li>Layihələr</li>
                     <li>Media<i class="fa-solid fa-caret-down"></i>
                         <ul>
-                             <li><a href="News.htm"> Xəbərlər</a></li>
+                            <li><a href="News.htm"> Xəbərlər</a></li>
                             <li><a href="elanlar.htm"> Elanlar</a></li>
                         </ul>
                     </li>
                     <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
                         <ul>
-                           <a href="/faq.htm"> <li>Tez-tez verilən suallar</li></a>
-                            <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
+                            <a href="/faq.htm">
+                                <li>Tez-tez verilən suallar</li>
+                            </a>
+                           <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
                             <li>text6</li>
                         </ul>
                     </li>
@@ -279,82 +411,59 @@
 
 
     <main>
-        <p class="titleText">Təşkilat haqqında</p>
-        <div class="aboutBox">
-            <div class="aboutText">
-                <p>“Kadastr və Yerquruluşu Layihə-Tədqiqat
-                    Mərkəzi” kadastr və yerquruluşu xidmətləri sahəsində
-                    fəaliyyət göstərən Məhdud Məsuliyyətli Cəmiyyətdir. Əsas fəaliyyət sahələrinə yerquruluşu və xüsusi
-                    (sahəvi) təyinatlı geodeziya işlərinin aparılması, daşınmaz əmlakın vahid dövlət kadastrının, dövlət
-                    torpaq kadastrının və ünvan reyestrinin tərtibi və aparılması, coğrafi mövqeləndirmə şəbəkəsi
-                    vasitəsilə geodeziya xidmətlərinin göstərilməsi, aeroşəkillərin çəkilməsi və ortofotoxəritələrinin
-                    hazırlanması daxildir.</p>
-                <br />
-                <p>Mərkəz təsdiq edilmiş Nizamnaməsi ilə
-                    nəzərdə tutulan vəzifələrini və hüquqlarını həyata keçirərkən
-                    dövlət və yerli özünüidarəetmə orqanları, beynəlxalq və qeyri-hökumət təşkilatları, digər hüquqi və
-                    fiziki şəxslərlə qarşılıqlı əlaqədə fəaliyyət göstərir. KYLTM həmçinin, Nizamnamə ilə müəyyən
-                    edilmiş fəaliyyət istiqamətlərinə uyğun olaraq sahibkarlıq fəaliyyəti ilə məşğul olur.</p>
-                <br />
+        <p class="titleText">Əlaqə məlumatları</p>
+
+     
+
+
+<div class="container">
+        
+        
+       
+
+        <div class="info-grid">
+            
+            <div class="info-block">
+                <h3>Telefon:</h3>
                 <p>
-                    Missiyamız tərəfdaşlarımıza milli və beynəlxalq standartlara uyğun hərtərəfli, dəqiq kadastr və
-                    geodeziya xidmətləri həyata keçirmək, daşınmaz əmlakın və torpaq ehtiyatlarının səmərəli idarə
-                    olunmasında, eyni zamanda geoməkan xidmətlərində innovativ həllər təqdim etməklə onların
-                    fəaliyyətini asanlaşdırmaq, peşəkarlığı, dürüstlüyü və şəffaflığı qorumaqdır.
+                    (+994 12) 497-69-02<br>
+                    (+994 12) 497-69-01<br>
+                    (+994 12) 533-19-58<br>
+                    (+994 12) 433-18-17
                 </p>
             </div>
-            <div class="aboutImg"></div>
+
+            <div class="info-block">
+                <h3>Ünvan:</h3>
+                <p>Azərbaycan, Bakı şəhəri, Heydər Əliyev Prospekti 103B</p>
+            </div>
+
+            <div class="info-block">
+                <h3>Faks:</h3>
+                <p>(+994 12) 533-19-58</p>
+            </div>
+
+            <div class="info-block">
+                <h3>E-poçt:</h3>
+                <p>kadastrxidmeti@emdk.gov.az</p>
+            </div>
+
         </div>
 
-        <div class="vectorBox">
-            <div class="vectorContent">
+    </div>
 
-                <img src="/img/Vector (1).svg" alt="imgVektor" />
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3038.334464197368!2d49.8916323!3d40.4014168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d40a02fbf81%3A0xa2a1cb133d6b0d9c!2sHeyd%C9%99r%20%C9%99liyev%20Pr.%20103B%2C%20Bak%C4%B1!5e0!3m2!1saz!2saz!4v1700000000000!5m2!1saz!2saz" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
 
-                <h3>Peşəkarlıq</h3>
 
-                <p>
-                    Göstərdiyimiz hər bir xidmətdə qabaqcıl təcrübə və peşəkarlığı, həmçinin dəqiqliyi, etibarlılığı və
-                    səmərəliliyi təmin etmək
-                </p>
-            </div>
 
-            <div class="vectorContent">
-
-                <img src="/img/Vector (3).svg" alt="imgVektor" />
-
-                <h3>Peşəkarlıq</h3>
-
-                <p>
-                    Göstərdiyimiz hər bir xidmətdə qabaqcıl təcrübə və peşəkarlığı, həmçinin dəqiqliyi, etibarlılığı və
-                    səmərəliliyi təmin etmək
-                </p>
-            </div>
-
-            <div class="vectorContent">
-
-                <img src="/img/Vector (2).svg" alt="imgVektor" />
-
-                <h3>Peşəkarlıq</h3>
-
-                <p>
-                    Göstərdiyimiz hər bir xidmətdə qabaqcıl təcrübə və peşəkarlığı, həmçinin dəqiqliyi, etibarlılığı və
-                    səmərəliliyi təmin etmək
-                </p>
-            </div>
-
-            <div class="vectorContent">
-
-                <img src="/img/Vector (4).svg" alt="imgVektor" />
-
-                <h3>Peşəkarlıq</h3>
-
-                <p>
-                    Göstərdiyimiz hər bir xidmətdə qabaqcıl təcrübə və peşəkarlığı, həmçinin dəqiqliyi, etibarlılığı və
-                    səmərəliliyi təmin etmək
-                </p>
-            </div>
-        </div>
+      
     </main>
 
     <footer>
