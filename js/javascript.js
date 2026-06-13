@@ -398,3 +398,151 @@ document.querySelectorAll('.accordion-header').forEach(button => {
         
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. Unikal Şəkil Məlumatları (Bütün şəkillərini bu massivə yerləşdirə bilərsən)
+    // Hər səhifədə 3 şəkil olacağını nəzərə alsaq, nümunə üçün bir neçə şəkil obyekti:
+    const customGalData = [
+        { src: 'sekil_1.jpg', alt: 'Manzara 1' },
+        { src: 'sekil_2.jpg', alt: 'Ofis dizaynı' },
+        { src: 'sekil_3.jpg', alt: 'Dağlar' },
+        
+        { src: 'sekil_4.jpg', alt: 'Növbəti Səhifə Şəkli 1' },
+        { src: 'sekil_5.jpg', alt: 'Növbəti Səhifə Şəkli 2' },
+        { src: 'sekil_6.jpg', alt: 'Növbəti Səhifə Şəkli 3' },
+        
+        { src: 'sekil_7.jpg', alt: 'Üçüncü Səhifə Şəkli 1' },
+        { src: 'sekil_8.jpg', alt: 'Üçüncü Səhifə Şəkli 2' },
+        { src: 'sekil_9.jpg', alt: 'Üçüncü Səhifə Şəkli 3' }
+        // İstədiyin qədər şəkil əlavə edə bilərsən...
+    ];
+
+    const itemsPerPageGal = 3; // Şəkildə göründüyü kimi hər sətirdə/səhifədə 3 şəkil
+    let activeGalPage = 1;
+    
+    // Ümumi səhifə sayını dinamik hesabla (Məsələn: 24 şəkil varsa, 24 / 3 = 8 səhifə edəcək)
+    const totalGalPages = Math.ceil(customGalData.length / itemsPerPageGal) || 1; 
+
+    // DOM Elementləri
+    const gridContainer = document.getElementById("mediaGalGrid");
+    const pagesContainer = document.getElementById("mediaGalPagesContainer");
+    const prevBtn = document.getElementById("mediaGalPrev");
+    const nextBtn = document.getElementById("mediaGalNext");
+
+    // 2. Şəkilləri Ekrana Çıxaran Əsas Çevirmə Funksiyası
+    function switchGalPage(pageIdx) {
+        // İndeksi təhlükəsiz hüdudlarda saxla
+        if (pageIdx < 1) pageIdx = 1;
+        if (pageIdx > totalGalPages) pageIdx = totalGalPages;
+        
+        activeGalPage = pageIdx;
+        gridContainer.innerHTML = ""; // Mövcud şəkilləri təmizlə
+
+        // Cari səhifəyə uyğun şəkillərin aralığını hesabla
+        const startIdx = (activeGalPage - 1) * itemsPerPageGal;
+        const endIdx = startIdx + itemsPerPageGal;
+        const slicedImages = customGalData.slice(startIdx, endIdx);
+
+        // Şəkilləri Grid daxilinə render et
+        slicedImages.forEach(imgInfo => {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("media-gal-item");
+
+            const imgEl = document.createElement("img");
+            imgEl.src = imgInfo.src;
+            imgEl.alt = imgInfo.alt;
+
+            itemDiv.appendChild(imgEl);
+            gridContainer.appendChild(itemDiv);
+        });
+
+        // Hər çevrilmədə pagination düymələrini yenidən qur
+        buildPaginationUI();
+    }
+
+    // 3. Düymələrin Dünyasını (UI) Yaradan Funksiya
+    function buildPaginationUI() {
+        pagesContainer.innerHTML = "";
+
+        // Həmişə ilk səhifəni göstər
+        createSinglePageBtn(1);
+
+        if (activeGalPage > 3) {
+            createEllipsis();
+        }
+
+        // Cari səhifənin ətrafındakı düymələr
+        let startRange = Math.max(2, activeGalPage - 1);
+        let endRange = Math.min(totalGalPages - 1, activeGalPage + 1);
+
+        for (let i = startRange; i <= endRange; i++) {
+            createSinglePageBtn(i);
+        }
+
+        if (activeGalPage < totalGalPages - 2) {
+            createEllipsis();
+        }
+
+        // Həmişə son səhifəni göstər
+        if (totalGalPages > 1) {
+            createSinglePageBtn(totalGalPages);
+        }
+
+        // Ox düymələrinin (Geri/İrəli) aktivlik vəziyyəti
+        prevBtn.disabled = activeGalPage === 1;
+        nextBtn.disabled = activeGalPage === totalGalPages;
+    }
+
+    // Tək bir səhifə düyməsi yaradan köməkçi funksiya
+    function createSinglePageBtn(pageNo) {
+        const btn = document.createElement("button");
+        btn.classList.add("media-gal-btn");
+        btn.textContent = pageNo;
+        
+        if (pageNo === activeGalPage) {
+            btn.classList.add("gal-active"); // Aktiv olan düymə yaşıl rəng olacaq
+        }
+
+        btn.addEventListener("click", () => {
+            switchGalPage(pageNo); // Düyməyə kliklədikdə səhifəni dəyiş
+        });
+
+        pagesContainer.appendChild(btn);
+    }
+
+    // Üç nöqtə (...) vizualı yaradan köməkçi funksiya
+    function createEllipsis() {
+        const dots = document.createElement("span");
+        dots.classList.add("media-gal-dots");
+        dots.textContent = "...";
+        pagesContainer.appendChild(dots);
+    }
+
+    // 4. Ox Düymələrinin İdarə Edilməsi (Geri və İrəli klikləri)
+    prevBtn.addEventListener("click", () => {
+        if (activeGalPage > 1) {
+            switchGalPage(activeGalPage - 1);
+        }
+    });
+
+    nextBtn.addEventListener("click", () => {
+        if (activeGalPage < totalGalPages) {
+            switchGalPage(activeGalPage + 1);
+        }
+    });
+
+    // İlk açılışda 1-ci səhifəni yüklə
+    switchGalPage(1);
+});
