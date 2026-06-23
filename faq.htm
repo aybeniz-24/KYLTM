@@ -14,9 +14,7 @@
     <style>
         :root {
             --primary-color: #1a4332;
-            /* Tünd yaşıl başlıq */
             --accent-color: #28a745;
-            /* Aktiv sual rəngi */
             --border-color: #e0e0e0;
         }
 
@@ -104,7 +102,6 @@
 
         .accordion-header.active .icon {
             transform: rotate(180deg);
-            /* "+" işarəsini "x" və ya "-" kimi göstərmək üçün */
         }
 
         .accordion-content {
@@ -157,9 +154,9 @@
                     </li>
 
                     <div id="content"></div>
-                   <li><a href="/Struktur.htm">Struktur</a></li>
+                    <li><a href="/Struktur.htm">Struktur</a></li>
                     <li>Beynəlxalq əlaqə</li>
-                   <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
+                    <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                 </ul>
                 </li>
                 <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
@@ -167,17 +164,18 @@
                 <li>Media<i class="fa-solid fa-caret-down"></i>
                     <ul>
                         <li><a href="News.htm"> Xəbərlər</a></li>
-                            <li><a href="elanlar.htm"> Elanlar</a></li>
-                             <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                              <li><a href="videoQalery.htm"> Video Qalerya</a></li>
-                           
+                        <li><a href="elanlar.htm"> Elanlar</a></li>
+                        <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
+                        <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+
                     </ul>
                 </li>
                 <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
                     <ul>
-                        <a href="/faq.htm"> <li>Tez-tez verilən suallar</li></a>
+                        <a href="/faq.htm">
+                            <li>Tez-tez verilən suallar</li>
+                        </a>
                         <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                        <li>text6</li>
                     </ul>
                 </li>
                 <li>Karyera</li>
@@ -223,27 +221,28 @@
                     <li>Haqqımızda<i class="fa-solid fa-caret-down"></i>
                         <ul>
                             <li>Təşkilat haqqında</li>
-                         <li><a href="/Struktur.htm">Struktur</a></li>
+                            <li><a href="/Struktur.htm">Struktur</a></li>
                             <li>Beynəlxalq əlaqə</li>
                             <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                         </ul>
                     </li>
-                   <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
-                   <li><a href="layiheler.htm">Layihələr</a></li>
+                    <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
+                    <li><a href="layiheler.htm">Layihələr</a></li>
                     <li>Media<i class="fa-solid fa-caret-down"></i>
                         <ul>
-                             <li><a href="News.htm"> Xəbərlər</a></li>
+                            <li><a href="News.htm"> Xəbərlər</a></li>
                             <li><a href="elanlar.htm"> Elanlar</a></li>
-                             <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                              <li><a href="videoQalery.htm"> Video Qalerya</a></li>
-                           
+                            <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
+                            <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+
                         </ul>
                     </li>
                     <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
                         <ul>
-                            <a href="/faq.htm"> <li>Tez-tez verilən suallar</li></a>
+                            <a href="/faq.htm">
+                                <li>Tez-tez verilən suallar</li>
+                            </a>
                             <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                            <li>text6</li>
                         </ul>
                     </li>
                     <li>Karyera</li>
@@ -457,7 +456,6 @@
                 const content = button.nextElementSibling;
                 const icon = button.querySelector('.icon');
 
-                // 1. Digər bütün açıq olanları bağlamaq məntiqi
                 document.querySelectorAll('.accordion-header').forEach(otherButton => {
                     if (otherButton !== button) {
                         const otherContent = otherButton.nextElementSibling;
@@ -466,23 +464,19 @@
                         otherButton.classList.remove('active');
                         otherContent.style.maxHeight = "0";
 
-                        // Font Awesome ikonunu bərpa edirik
                         if (otherIcon.classList.contains('fa-minus')) {
                             otherIcon.classList.replace('fa-minus', 'fa-plus');
                         }
                     }
                 });
 
-                // 2. Kliklənən elementin özünü idarə etmək
                 button.classList.toggle('active');
 
                 if (button.classList.contains('active')) {
                     content.style.maxHeight = content.scrollHeight + "px";
-                    // İkonu dəyiş: Plus -> Minus
                     icon.classList.replace('fa-plus', 'fa-minus');
                 } else {
                     content.style.maxHeight = "0";
-                    // İkonu dəyiş: Minus -> Plus
                     icon.classList.replace('fa-minus', 'fa-plus');
                 }
             });

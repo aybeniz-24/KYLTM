@@ -14,9 +14,7 @@
     <style>
         :root {
             --primary-color: #1a4332;
-            /* Tünd yaşıl başlıq */
             --accent-color: #28a745;
-            /* Aktiv sual rəngi */
             --border-color: #e0e0e0;
         }
 
@@ -104,7 +102,6 @@
 
         .accordion-header.active .icon {
             transform: rotate(180deg);
-            /* "+" işarəsini "x" və ya "-" kimi göstərmək üçün */
         }
 
         .accordion-content {
@@ -131,402 +128,617 @@
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-        /* =========================================================================
-   1. SİYAHI SƏHİFƏSİNİN STİLLƏRİ
-   ========================================================================= */
-.projects-page { background: #fff; padding: 40px 0; width: 100%; box-sizing: border-box; }
-.projects-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 40px; }
-
-.project-item {
-    display: block; text-decoration: none; position: relative; width: 100%;
-    aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.07); background: #000;
-}
-.project-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-.project-item:hover img { transform: scale(1.04); }
-
-.project-text-overlay {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.68); padding: 15px; box-sizing: border-box;
-}
-.project-text-overlay p {
-    margin: 0; color: #fff !important; font-size: 0.88rem; line-height: 1.4;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-}
-
-/* Səhifələmə (Pagination) */
-.projects-pagination { display: flex; justify-content: center; align-items: center; gap: 8px; }
-.pag-arrow, .pag-btn { background: #fff; border: 1px solid #e2e8f0; color: #4a5568; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
-.pag-btn.pag-active { background: #2ecc71; color: #fff; border-color: #2ecc71; }
-.pag-dots { color: #a0aec0; padding: 0 5px; }
-
-/* =========================================================================
-   2. ƏTRAFLI (DETAILS) SƏHİFƏSİNİN STİLLƏRİ (image_1a081b.png)
-   ========================================================================= */
-.project-detail-page {
-    background: #ffffff; padding: 50px 0; width: 100%; box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-.detail-container {
-    max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; padding: 0 20px; box-sizing: border-box;
-}
-
-/* Sol Tərəf - Qalereya bloku */
-.detail-gallery-side { flex: 1.1; display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
-
-.main-display-box {
-    width: 100%; aspect-ratio: 16 / 10; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden;
-}
-.main-display-box img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Kiçik şəkillər sırası */
-.thumb-strip { display: flex; gap: 12px; width: 100%; }
-.thumb-item {
-    width: calc(33.333% - 8px); aspect-ratio: 16 / 9; object-fit: cover;
-    border-radius: 4px; cursor: pointer; border: 2px solid transparent; opacity: 0.7; transition: all 0.2s;
-}
-.thumb-item:hover { opacity: 1; }
-.thumb-item.active-thumb { border-color: #1b4d3e; opacity: 1; } /* Maketdəki tünd yaşıl/mavi haşiyə */
-
-/* Sağ Tərəf - Məlumatlar */
-.detail-content-side { flex: 0.9; display: flex; flex-direction: column; gap: 20px; }
-
-.project-main-title {
-    font-size: 1.65rem; color: #113329; /* Maketdəki tünd rəng tonu */
-    line-height: 1.4; font-weight: 700; margin: 0;
-}
-.project-sub-desc {
-    font-size: 0.95rem; color: #555555; line-height: 1.7; margin: 0; text-align: justify;
-}
-
-/* =========================================================================
-   3. RESPONSIVE DÜZƏLİŞLƏR (MULTI-SCREEN SUPPORT)
-   ========================================================================= */
-@media (max-width: 992px) {
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    .detail-container { flex-direction: column; gap: 30px; }
-    .detail-gallery-side { max-width: 100%; }
-}
-
-@media (max-width: 576px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-main-title { font-size: 1.3rem; }
-    .project-sub-desc { font-size: 0.88rem; }
-}
-
-
-
-
-
-
-
-
-
-
-
-/* =========================================================================
-   LAYİHƏLƏR SƏHİFƏSİ - MAİN VƏ GRİD STRUKTURU
-   ========================================================================= */
-.projects-page {
-    background-color: #ffffff;
-    padding: 40px 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
-
-/* Masaüstü ekranlar üçün 3 sütunlu nizamlı Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    width: 100%;
-    margin-bottom: 40px;
-}
-
-/* 🔥 LINK KARTLARI (Təhlükəsiz və Sıfırlanmış Dizayn) */
-.project-item {
-    display: block;          /* Linkin bütün blok boyu kliklənə bilməsi üçün */
-    text-decoration: none;   /* Standart göy alt xətti tamamilə silir */
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 3;     /* Bütün şəkillərin riyazi olaraq eyni hündürlükdə qalması üçün */
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
-    background-color: #000000; /* Şəkil yüklənənə qədər arxa fon */
-    z-index: 1;              /* Menyunun altında qalmaması üçün təhlükəsiz qat */
-    cursor: pointer;
-}
-
-.project-item img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;       /* Şəkillərin dartılmasını və ya əzilməsini önləyir */
-    transition: transform 0.3s ease;
-}
-
-/* Hover effekti: Üstünə gəldikdə şəklin içəridə yüngül böyüməsi */
-.project-item:hover img {
-    transform: scale(1.04);
-}
-
-/* 🔥 QARA YARIMŞƏFFAF MƏTN PARÇASI (Mətn overlayı) */
-.project-text-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.68); /* Maketdəki tünd keçid fonu */
-    padding: 15px;
-    box-sizing: border-box;
-    backdrop-filter: blur(1px);     /* Müasir brauzerlər üçün yüngül duman effekti */
-}
-
-.project-text-overlay p {
-    margin: 0;
-    color: #ffffff !important;       /* Mətnin rəngini ağ rəngdə sabitləyirik */
-    font-size: 0.88rem;
-    line-height: 1.4;
-    font-weight: 400;
-    text-align: left;
-    
-    /* Çox uzun yazılarda mətnin kartdan aşağı daşmasını əngəlləyən qızıl kod */
-    display: -webkit-box;
-    -webkit-line-clamp: 3;           /* Maksimum 3 sətir göstər, qalanına 3 nöqtə qoy */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* =========================================================================
-   PAGINATION (SƏHİFƏLƏMƏ BÖLMƏSİ)
-   ========================================================================= */
-.projects-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 30px;
-}
-
-.pag-arrow, .pag-btn {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    color: #4a5568;
-    padding: 8px 14px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-}
-
-.pag-btn:hover, .pag-arrow:hover {
-    background: #f7fafc;
-    border-color: #cbd5e0;
-}
-
-/* Aktiv səhifə indikatoru (Sizin dizayndakı yaşıl rəng) */
-.pag-btn.pag-active {
-    background: #2ecc71;
-    color: #ffffff;
-    border-color: #2ecc71;
-}
-
-.pag-dots {
-    color: #a0aec0;
-    padding: 0 5px;
-}
-
-/* =========================================================================
-   RESPONSIVE - TABLET DÜZƏLİŞİ (Maksimum 992px)
-   ========================================================================= */
-@media (max-width: 992px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr); /* Yan-yana 2 sütun */
-        gap: 20px;
-    }
-}
-
-/* =========================================================================
-   RESPONSIVE - MOBİL DÜZƏLİŞİ (Maksimum 576px və 360px)
-   ========================================================================= */
-@media (max-width: 576px) {
-    .projects-container {
-        padding: 0 15px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr; /* Tam ekran 1 sütun rejim */
-        gap: 16px;
-    }
-
-    .project-item {
-        aspect-ratio: 16 / 10; /* Mobildə şəklin dik durmaması üçün bir az daha geniş nisbət */
-    }
-
-    .project-text-overlay {
-        padding: 12px;
-    }
-
-    .project-text-overlay p {
-        font-size: 0.82rem;
-        -webkit-line-clamp: 2; /* Mobildə kiçik ekrana görə mətni 2 sətirdə məhdudlaşdırır */
-    }
-
-    .pag-arrow, .pag-btn {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-    }
-}
-
-
-
-
-
-
-
-
-/* 🔥 LAYİHƏLƏRƏ GERİ DÖN DÜYMƏSİ */
-.back-to-projects-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;      /* Göy alt xətti silir */
-    color: #113329;             /* Maketdəki tünd yaşıl yazı rəngi */
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 8px 16px;
-    border: 1px solid #e2e8f0;  /* İncə kənar xətti */
-    border-radius: 4px;
-    width: fit-content;         /* Düymənin bütün satırı tutmasını önləyir */
-    transition: all 0.2s ease-in-out;
-    margin-bottom: 5px;         /* Başlıqla arasında məsafə */
-    background-color: #ffffff;
-}
-
-/* Düymənin ox işarəsi üçün kiçik ölçü nizamı */
-.btn-arrow {
-    font-size: 1.1rem;
-    transition: transform 0.2s ease;
-}
-
-/* Hover effekti: Siçan üstünə gəldikdə */
-.back-to-projects-btn:hover {
-    background-color: #f8fafc;  /* Yüngül boz fon */
-    border-color: #cbd5e1;      /* Kənar xəttin tündləşməsi */
-    color: #2ecc71;             /* Sizin dizayndakı yaşıl rəng tonu */
-}
-
-/* Hover zamanı oxun sola doğru yüngül hərəkət etməsi (Xoş bir effekt üçün) */
-.back-to-projects-btn:hover .btn-arrow {
-    transform: translateX(-3px);
-}
-
-
-
-
-/* =========================================================================
-   1. SİYAHI SƏHİFƏSİNİN STİLLƏRİ
-   ========================================================================= */
-.projects-page { background: #fff; padding: 40px 0; width: 100%; box-sizing: border-box; }
-.projects-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 40px; }
-
-.project-item {
-    display: block; text-decoration: none; position: relative; width: 100%;
-    aspect-ratio: 4 / 3; border-radius: 4px; overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.07); background: #000;
-}
-.project-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-.project-item:hover img { transform: scale(1.04); }
-
-.project-text-overlay {
-    position: absolute; bottom: 0; left: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.68); padding: 15px; box-sizing: border-box;
-}
-.project-text-overlay p {
-    margin: 0; color: #fff !important; font-size: 0.88rem; line-height: 1.4;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-}
-
-/* Səhifələmə (Pagination) */
-.projects-pagination { display: flex; justify-content: center; align-items: center; gap: 8px; }
-.pag-arrow, .pag-btn { background: #fff; border: 1px solid #e2e8f0; color: #4a5568; padding: 8px 14px; border-radius: 4px; cursor: pointer; }
-.pag-btn.pag-active { background: #2ecc71; color: #fff; border-color: #2ecc71; }
-.pag-dots { color: #a0aec0; padding: 0 5px; }
-
-/* =========================================================================
-   2. ƏTRAFLI (DETAILS) SƏHİFƏSİNİN STİLLƏRİ (image_1a081b.png)
-   ========================================================================= */
-.project-detail-page {
-    background: #ffffff; padding: 50px 0; width: 100%; box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-.detail-container {
-    max-width: 1200px; margin: 0 auto; display: flex; gap: 50px; padding: 0 20px; box-sizing: border-box;
-}
-
-/* Sol Tərəf - Qalereya bloku */
-.detail-gallery-side { flex: 1.1; display: flex; flex-direction: column; gap: 15px; max-width: 600px; }
-
-.main-display-box {
-    width: 100%; aspect-ratio: 16 / 10; border: 1px solid #e2e8f0; border-radius: 4px; overflow: hidden;
-}
-.main-display-box img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Kiçik şəkillər sırası */
-.thumb-strip { display: flex; gap: 12px; width: 100%; }
-.thumb-item {
-    width: calc(33.333% - 8px); aspect-ratio: 16 / 9; object-fit: cover;
-    border-radius: 4px; cursor: pointer; border: 2px solid transparent; opacity: 0.7; transition: all 0.2s;
-}
-.thumb-item:hover { opacity: 1; }
-.thumb-item.active-thumb { border-color: #1b4d3e; opacity: 1; } /* Maketdəki tünd yaşıl/mavi haşiyə */
-
-/* Sağ Tərəf - Məlumatlar */
-.detail-content-side { flex: 0.9; display: flex; flex-direction: column; gap: 20px; }
-
-.project-main-title {
-    font-size: 1.65rem; color: #113329; /* Maketdəki tünd rəng tonu */
-    line-height: 1.4; font-weight: 700; margin: 0;
-}
-.project-sub-desc {
-    font-size: 0.95rem; color: #555555; line-height: 1.7; margin: 0; text-align: justify;
-}
-
-/* =========================================================================
-   3. RESPONSIVE DÜZƏLİŞLƏR (MULTI-SCREEN SUPPORT)
-   ========================================================================= */
-@media (max-width: 992px) {
-    .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    .detail-container { flex-direction: column; gap: 30px; }
-    .detail-gallery-side { max-width: 100%; }
-}
-
-@media (max-width: 576px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .project-main-title { font-size: 1.3rem; }
-    .project-sub-desc { font-size: 0.88rem; }
-}
+        .projects-page {
+            background: #fff;
+            padding: 40px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .project-item {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+            background: #000;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .project-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.68);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .project-text-overlay p {
+            margin: 0;
+            color: #fff !important;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .projects-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pag-arrow,
+        .pag-btn {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            color: #4a5568;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .pag-btn.pag-active {
+            background: #2ecc71;
+            color: #fff;
+            border-color: #2ecc71;
+        }
+
+        .pag-dots {
+            color: #a0aec0;
+            padding: 0 5px;
+        }
+
+
+        .project-detail-page {
+            background: #ffffff;
+            padding: 50px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 50px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .detail-gallery-side {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+        }
+
+        .main-display-box {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .main-display-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .thumb-strip {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .thumb-item {
+            width: calc(33.333% - 8px);
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+
+        .thumb-item:hover {
+            opacity: 1;
+        }
+
+        .thumb-item.active-thumb {
+            border-color: #1b4d3e;
+            opacity: 1;
+        }
+
+
+        .detail-content-side {
+            flex: 0.9;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-main-title {
+            font-size: 1.65rem;
+            color: #113329;
+            line-height: 1.4;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .project-sub-desc {
+            font-size: 0.95rem;
+            color: #555555;
+            line-height: 1.7;
+            margin: 0;
+            text-align: justify;
+        }
+
+
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .detail-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .detail-gallery-side {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-main-title {
+                font-size: 1.3rem;
+            }
+
+            .project-sub-desc {
+                font-size: 0.88rem;
+            }
+        }
+
+
+
+
+
+
+
+        .projects-page {
+            background-color: #ffffff;
+            padding: 40px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .project-item {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+            background-color: #000000;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .project-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.68);
+            padding: 15px;
+            box-sizing: border-box;
+            backdrop-filter: blur(1px);
+        }
+
+        .project-text-overlay p {
+            margin: 0;
+            color: #ffffff !important;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            font-weight: 400;
+            text-align: left;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .projects-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+        }
+
+        .pag-arrow,
+        .pag-btn {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #4a5568;
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .pag-btn:hover,
+        .pag-arrow:hover {
+            background: #f7fafc;
+            border-color: #cbd5e0;
+        }
+
+        .pag-btn.pag-active {
+            background: #2ecc71;
+            color: #ffffff;
+            border-color: #2ecc71;
+        }
+
+        .pag-dots {
+            color: #a0aec0;
+            padding: 0 5px;
+        }
+
+
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-container {
+                padding: 0 15px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .project-item {
+                aspect-ratio: 16 / 10;
+            }
+
+            .project-text-overlay {
+                padding: 12px;
+            }
+
+            .project-text-overlay p {
+                font-size: 0.82rem;
+                -webkit-line-clamp: 2;
+            }
+
+            .pag-arrow,
+            .pag-btn {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+        }
+
+
+
+        .back-to-projects-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #113329;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            width: fit-content;
+            transition: all 0.2s ease-in-out;
+            margin-bottom: 5px;
+            background-color: #ffffff;
+        }
+
+        .btn-arrow {
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .back-to-projects-btn:hover {
+            background-color: #f8fafc;
+            border-color: #cbd5e1;
+            color: #2ecc71;
+        }
+
+        .back-to-projects-btn:hover .btn-arrow {
+            transform: translateX(-3px);
+        }
+
+
+        .projects-page {
+            background: #fff;
+            padding: 40px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .project-item {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+            background: #000;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.04);
+        }
+
+        .project-text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.68);
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .project-text-overlay p {
+            margin: 0;
+            color: #fff !important;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .projects-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pag-arrow,
+        .pag-btn {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            color: #4a5568;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .pag-btn.pag-active {
+            background: #2ecc71;
+            color: #fff;
+            border-color: #2ecc71;
+        }
+
+        .pag-dots {
+            color: #a0aec0;
+            padding: 0 5px;
+        }
+
+
+        .project-detail-page {
+            background: #ffffff;
+            padding: 50px 0;
+            width: 100%;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 50px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .detail-gallery-side {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+        }
+
+        .main-display-box {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .main-display-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-strip {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .thumb-item {
+            width: calc(33.333% - 8px);
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+
+        .thumb-item:hover {
+            opacity: 1;
+        }
+
+        .thumb-item.active-thumb {
+            border-color: #1b4d3e;
+            opacity: 1;
+        }
+
+        .detail-content-side {
+            flex: 0.9;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-main-title {
+            font-size: 1.65rem;
+            color: #113329;
+            line-height: 1.4;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .project-sub-desc {
+            font-size: 0.95rem;
+            color: #555555;
+            line-height: 1.7;
+            margin: 0;
+            text-align: justify;
+        }
+
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .detail-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .detail-gallery-side {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-main-title {
+                font-size: 1.3rem;
+            }
+
+            .project-sub-desc {
+                font-size: 0.88rem;
+            }
+        }
     </style>
 
 </head>
@@ -554,9 +766,9 @@
                     </li>
 
                     <div id="content"></div>
-                   <li><a href="/Struktur.htm">Struktur</a></li>
+                    <li><a href="/Struktur.htm">Struktur</a></li>
                     <li>Beynəlxalq əlaqə</li>
-                   <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
+                    <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                 </ul>
                 </li>
                 <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
@@ -564,17 +776,18 @@
                 <li>Media<i class="fa-solid fa-caret-down"></i>
                     <ul>
                         <li><a href="News.htm"> Xəbərlər</a></li>
-                            <li><a href="elanlar.htm"> Elanlar</a></li>
-                             <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                              <li><a href="videoQalery.htm"> Video Qalerya</a></li>
-                           
+                        <li><a href="elanlar.htm"> Elanlar</a></li>
+                        <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
+                        <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+
                     </ul>
                 </li>
                 <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
                     <ul>
-                        <a href="/faq.htm"> <li>Tez-tez verilən suallar</li></a>
+                        <a href="/faq.htm">
+                            <li>Tez-tez verilən suallar</li>
+                        </a>
                         <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                        <li>text6</li>
                     </ul>
                 </li>
                 <li>Karyera</li>
@@ -620,27 +833,28 @@
                     <li>Haqqımızda<i class="fa-solid fa-caret-down"></i>
                         <ul>
                             <li>Təşkilat haqqında</li>
-                         <li><a href="/Struktur.htm">Struktur</a></li>
+                            <li><a href="/Struktur.htm">Struktur</a></li>
                             <li>Beynəlxalq əlaqə</li>
                             <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                         </ul>
                     </li>
-                   <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
-                   <li><a href="layiheler.htm">Layihələr</a></li>
+                    <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
+                    <li><a href="layiheler.htm">Layihələr</a></li>
                     <li>Media<i class="fa-solid fa-caret-down"></i>
                         <ul>
-                             <li><a href="News.htm"> Xəbərlər</a></li>
+                            <li><a href="News.htm"> Xəbərlər</a></li>
                             <li><a href="elanlar.htm"> Elanlar</a></li>
-                             <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                              <li><a href="videoQalery.htm"> Video Qalerya</a></li>
-                           
+                            <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
+                            <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+
                         </ul>
                     </li>
                     <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
                         <ul>
-                            <a href="/faq.htm"> <li>Tez-tez verilən suallar</li></a>
+                            <a href="/faq.htm">
+                                <li>Tez-tez verilən suallar</li>
+                            </a>
                             <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                            <li>text6</li>
                         </ul>
                     </li>
                     <li>Karyera</li>
@@ -678,38 +892,38 @@
 
 
 
-<main id="main" class="project-detail-page">
-    <div class="detail-container">
-        
-        <div class="detail-gallery-side">
-            <div class="main-display-box">
-                <img id="mainImg" src="" alt="Layihə əsas şəkil">
-            </div>
-            
-            <div class="thumb-strip" id="thumbContainer">
+    <main id="main" class="project-detail-page">
+        <div class="detail-container">
+
+            <div class="detail-gallery-side">
+                <div class="main-display-box">
+                    <img id="mainImg" src="" alt="Layihə əsas şəkil">
                 </div>
+
+                <div class="thumb-strip" id="thumbContainer">
+                </div>
+            </div>
+
+            <div class="detail-content-side">
+
+
+
+                <h1 class="project-main-title" id="projectTitle">Yüklənir...</h1>
+                <p class="project-sub-desc" id="projectDesc">Məlumatlar hazırlanır...</p>
+            </div>
+
         </div>
 
-        <div class="detail-content-side">
-            
-            
-
-            <h1 class="project-main-title" id="projectTitle">Yüklənir...</h1>
-            <p class="project-sub-desc" id="projectDesc">Məlumatlar hazırlanır...</p>
-        </div>
-
-    </div>
-
-    <div class="detail-container">
-        <div class="back-btn-container">
+        <div class="detail-container">
+            <div class="back-btn-container">
                 <a href="layiheler.htm" class="back-to-projects-btn">
                     <span class="btn-arrow">&larr;</span> Layihələrə geri dön
                 </a>
             </div>
-    </div>
-    
-</main>
-   
+        </div>
+
+    </main>
+
 
 
 
@@ -783,81 +997,69 @@
 
     <script src="./js/javascript.js"></script>
     <script>
-const projectsRepository = {
-        "1": {
-            title: "Naxçıvan MR ərazisində AzPOS şəbəkəsinin yaradılması",
-            desc: "Naxçıvan Muxtar Respublikası ərazisində realləşən layihə çərçivəsində müasir tələblərə cavab verən geodeziya və topoqrafiya işlərinin səmərəliliyini artırmaq məqsədilə AzPOS stansiyalarının tətbiqi genişləndirilmişdir.",
-            images: ["/img/LayihələrImg2.png", "/img/LayihələrImg1.jpg", "/img/LayihələrImg6.jpg"]
-        },
-        "2": {
-            title: "AzPOS xidmətlərinin elektronlaşdırılması",
-            desc: "Elektron xidmətlərin tətbiqi və rəqəmsal geodeziya məlumatlarının idarə olunması sisteminin qurulması işləri icra edilmişdir.",
-            images: ["/img/LayihələrImg3.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
-        },
-        "3": {
-            title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
-            desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
-            images: ["/img/LayihələrImg4.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg6.jpg"]
-        },
-        "4": {
-            title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
-            desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
-            images: ["/img/LayihələrImg5.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
-        },
-        "5": {
-            title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
-            desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
-            images: ["/img/LayihələrImg6.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
-        },
-        "6": {
-            title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
-            desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
-            images: ["/img/LayihələrImg7.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
-        }
-    };
+        const projectsRepository = {
+            "1": {
+                title: "Naxçıvan MR ərazisində AzPOS şəbəkəsinin yaradılması",
+                desc: "Naxçıvan Muxtar Respublikası ərazisində realləşən layihə çərçivəsində müasir tələblərə cavab verən geodeziya və topoqrafiya işlərinin səmərəliliyini artırmaq məqsədilə AzPOS stansiyalarının tətbiqi genişləndirilmişdir.",
+                images: ["/img/LayihələrImg2.png", "/img/LayihələrImg1.jpg", "/img/LayihələrImg6.jpg"]
+            },
+            "2": {
+                title: "AzPOS xidmətlərinin elektronlaşdırılması",
+                desc: "Elektron xidmətlərin tətbiqi və rəqəmsal geodeziya məlumatlarının idarə olunması sisteminin qurulması işləri icra edilmişdir.",
+                images: ["/img/LayihələrImg3.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
+            },
+            "3": {
+                title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
+                desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
+                images: ["/img/LayihələrImg4.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg6.jpg"]
+            },
+            "4": {
+                title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
+                desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
+                images: ["/img/LayihələrImg5.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
+            },
+            "5": {
+                title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
+                desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
+                images: ["/img/LayihələrImg6.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
+            },
+            "6": {
+                title: "Meliorasiya və Su Təsərrüfatı\" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi",
+                desc: "Xocalı və Xocavənd rayonları ərazisində torpaqların elektron uçotu işləri çərçivəsində ərazidə çöl-ölçmə işlərinin aparılması, bütün növ daşınmaz əmlak obyektlərinin, kommunikasiyaların və s. (torpaq, tikili, yollar) koordinatlarının götürülməsi, onların həndəsi ölçülərinin müəyyən edilməsi işləri həyata keçirilir.",
+                images: ["/img/LayihələrImg7.jpg", "/img/LayihələrImg1.jpg", "/img/LayihələrImg4.jpg"]
+            }
+        };
 
-    // URL-dən ID parametrini oxumaq (?id=5)
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get('id');
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
 
-    if (id && projectsRepository[id]) {
-        const currentData = projectsRepository[id];
-        
-        // Mətnləri doldur
-        document.getElementById('projectTitle').innerText = currentData.title;
-        document.getElementById('projectDesc').innerText = currentData.desc;
-        
-        // İlk şəkli əsas şəkil et
-        const mainImg = document.getElementById('mainImg');
-        mainImg.src = currentData.images[0];
-        
-        // Kiçik şəkilləri nizamla
-        const thumbContainer = document.getElementById('thumbContainer');
-        currentData.images.forEach((src, idx) => {
-            const thumb = document.createElement('img');
-            thumb.src = src;
-            thumb.classList.add('thumb-item');
-            if(idx === 0) thumb.classList.add('active-thumb');
-            
-            // Kiçik şəkillərə klik edəndə böyük şəklin dəyişməsi
-            thumb.addEventListener('click', () => {
-                mainImg.src = src;
-                document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active-thumb'));
-                thumb.classList.add('active-thumb');
+        if (id && projectsRepository[id]) {
+            const currentData = projectsRepository[id];
+
+            document.getElementById('projectTitle').innerText = currentData.title;
+            document.getElementById('projectDesc').innerText = currentData.desc;
+
+            const mainImg = document.getElementById('mainImg');
+            mainImg.src = currentData.images[0];
+
+            const thumbContainer = document.getElementById('thumbContainer');
+            currentData.images.forEach((src, idx) => {
+                const thumb = document.createElement('img');
+                thumb.src = src;
+                thumb.classList.add('thumb-item');
+                if (idx === 0) thumb.classList.add('active-thumb');
+
+                thumb.addEventListener('click', () => {
+                    mainImg.src = src;
+                    document.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active-thumb'));
+                    thumb.classList.add('active-thumb');
+                });
+
+                thumbContainer.appendChild(thumb);
             });
-            
-            thumbContainer.appendChild(thumb);
-        });
-    } else {
-        document.getElementById('projectTitle').innerText = "Layihə tapılmadı";
-    }
-
-
-
-
-
-
-
+        } else {
+            document.getElementById('projectTitle').innerText = "Layihə tapılmadı";
+        }
 
 
 
@@ -867,7 +1069,6 @@ const projectsRepository = {
                 const content = button.nextElementSibling;
                 const icon = button.querySelector('.icon');
 
-                // 1. Digər bütün açıq olanları bağlamaq məntiqi
                 document.querySelectorAll('.accordion-header').forEach(otherButton => {
                     if (otherButton !== button) {
                         const otherContent = otherButton.nextElementSibling;
@@ -876,23 +1077,19 @@ const projectsRepository = {
                         otherButton.classList.remove('active');
                         otherContent.style.maxHeight = "0";
 
-                        // Font Awesome ikonunu bərpa edirik
                         if (otherIcon.classList.contains('fa-minus')) {
                             otherIcon.classList.replace('fa-minus', 'fa-plus');
                         }
                     }
                 });
 
-                // 2. Kliklənən elementin özünü idarə etmək
                 button.classList.toggle('active');
 
                 if (button.classList.contains('active')) {
                     content.style.maxHeight = content.scrollHeight + "px";
-                    // İkonu dəyiş: Plus -> Minus
                     icon.classList.replace('fa-plus', 'fa-minus');
                 } else {
                     content.style.maxHeight = "0";
-                    // İkonu dəyiş: Minus -> Plus
                     icon.classList.replace('fa-minus', 'fa-plus');
                 }
             });

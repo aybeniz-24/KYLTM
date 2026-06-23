@@ -119,11 +119,6 @@
 
 
 
-
-
-
-
-        /* Əsas Qalereya Konteyneri */
         .media-gal-wrapper {
             max-width: 1200px;
             margin: 40px auto;
@@ -131,16 +126,13 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Başlıq stili */
         .media-gal-title {
             font-size: 32px;
             color: #1e3d2f;
-            /* Şəkildəki tünd yaşıl tonu */
             margin-bottom: 25px;
             font-weight: 600;
         }
 
-        /* 3x3 Grid Sistemi */
         .media-gal-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -148,11 +140,9 @@
             margin-bottom: 40px;
         }
 
-        /* Şəkil Kartları */
         .media-gal-item {
             position: relative;
             aspect-ratio: 4 / 3;
-            /* Şəkillərin proporsiyasını qorumaq üçün */
             overflow: hidden;
             border-radius: 4px;
             background-color: #f5f5f5;
@@ -165,12 +155,10 @@
             transition: transform 0.3s ease;
         }
 
-        /* Hover effekti (istəyə bağlı) */
         .media-gal-item:hover img {
             transform: scale(1.03);
         }
 
-        /* Səhifələmə Blokunun Dizaynı */
         .media-gal-pagination {
             display: flex;
             justify-content: center;
@@ -179,7 +167,6 @@
             margin-top: 30px;
         }
 
-        /* Səhifə Düymələri */
         .media-gal-pages {
             display: flex;
             gap: 8px;
@@ -203,15 +190,12 @@
             border-color: #cccccc;
         }
 
-        /* Aktiv Səhifə Düyməsi (Yaşıl) */
         .media-gal-btn.gal-active {
             background-color: #1aa37a;
-            /* Şəkildəki yaşıl rəng */
             color: #ffffff;
             border-color: #1aa37a;
         }
 
-        /* Ox Düymələri (Əvvəl / Sonra) */
         .media-gal-arrow {
             border: 1px solid #e0e0e0;
             background-color: #f9f9f9;
@@ -228,14 +212,12 @@
             background-color: #f5f5f5;
         }
 
-        /* Üç nöqtə (Ellipsis) vizualı üçün */
         .media-gal-dots {
             padding: 8px 6px;
             color: #999999;
             font-size: 14px;
         }
 
-        /* Mobil adaptivlik (Responsive) */
         @media (max-width: 900px) {
             .media-gal-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -255,180 +237,175 @@
         }
 
 
+        .gal-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .gal-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 10001;
+        }
+
+        .gal-modal-close:hover {
+            color: #1aa37a;
+        }
+
+        .gal-modal-content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 1000px;
+            height: 60vh;
+            position: relative;
+        }
+
+        .gal-modal-main-box {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gal-modal-main-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .gal-modal-arrow {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+            user-select: none;
+            z-index: 10000;
+        }
+
+        .gal-modal-arrow:hover {
+            background: #1aa37a;
+        }
+
+        .gal-modal-prev {
+            margin-right: 20px;
+        }
+
+        .gal-modal-next {
+            margin-left: 20px;
+        }
+
+        .gal-modal-thumbs-outer {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .gal-modal-thumbs-inner {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
 
 
 
+        .gal-thumb-item {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 3px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
 
+        .gal-thumb-item:hover,
+        .gal-thumb-item.thumb-active {
+            opacity: 1;
+            border-color: #1aa37a;
+        }
 
-/* Lightbox Modal Əsas Fon */
-.gal-modal {
-    display: none; 
-    position: fixed;
-    z-index: 9999; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Arxa fonun qaralması */
-    backdrop-filter: blur(5px);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+        @media (max-width: 600px) {
+            .gal-modal-content-wrapper {
+                height: 45vh;
+            }
 
-/* Bağlama düyməsi (X) */
-.gal-modal-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #ffffff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.2s;
-    z-index: 10001;
-}
-.gal-modal-close:hover {
-    color: #1aa37a;
-}
+            .gal-modal-arrow {
+                padding: 10px 14px;
+                font-size: 18px;
+            }
 
-/* Mərkəzi Şəkil və Oxların Konteyneri */
-.gal-modal-content-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    max-width: 1000px;
-    height: 60vh;
-    position: relative;
-}
+            .gal-thumb-item {
+                width: 60px;
+                height: 45px;
+            }
+        }
 
-.gal-modal-main-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .gal-modal-thumbs-outer {
+            margin-top: 30px;
+            width: 90%;
+            max-width: 800px;
+            overflow-x: auto;
+            padding-bottom: 5px;
 
-.gal-modal-main-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.5);
-}
+            -webkit-overflow-scrolling: touch;
+        }
 
-/* Modal Ox Düymələri */
-.gal-modal-arrow {
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    font-size: 24px;
-    padding: 15px 20px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background 0.2s;
-    user-select: none;
-    z-index: 10000;
-}
-.gal-modal-arrow:hover {
-    background: #1aa37a;
-}
-.gal-modal-prev { margin-right: 20px; }
-.gal-modal-next { margin-left: 20px; }
+        .gal-modal-thumbs-outer::-webkit-scrollbar {
+            display: none;
+        }
 
-/* Aşağıdakı Kiçik Şəkillər Bölməsi (Thumbnails) */
-.gal-modal-thumbs-outer {
-    margin-top: 30px;
-    width: 90%;
-    max-width: 800px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-}
+        .gal-modal-thumbs-outer {
+            scrollbar-width: none;
+        }
 
-.gal-modal-thumbs-inner {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
+        .gal-modal-thumbs-outer {
+            -ms-overflow-style: none;
+        }
 
+        .gal-thumb-item {
+            width: 160px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: all 0.2s ease;
+            border: 3px solid transparent;
+        }
 
-
-.gal-thumb-item {
-    width: 80px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 3px;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: all 0.2s ease;
-    border: 2px solid transparent;
-}
-
-.gal-thumb-item:hover, 
-.gal-thumb-item.thumb-active {
-    opacity: 1;
-    border-color: #1aa37a;
-}
-
-/* Mobil tənzimləmə */
-@media (max-width: 600px) {
-    .gal-modal-content-wrapper {
-        height: 45vh;
-    }
-    .gal-modal-arrow {
-        padding: 10px 14px;
-        font-size: 18px;
-    }
-    .gal-thumb-item {
-        width: 60px;
-        height: 45px;
-    }
-}
-/* Aşağıdakı Kiçik Şəkillər Bölməsi (Skrolu gizlətməklə) */
-.gal-modal-thumbs-outer {
-    margin-top: 30px;
-    width: 90%;
-    max-width: 800px;
-    overflow-x: auto;          /* Sürüşmə funksiyası aktiv qalır */
-    padding-bottom: 5px;
-    
-    /* Chrome, Safari və Opera üçün skrol xəttini gizlədir */
-    -webkit-overflow-scrolling: touch; 
-}
-
-.gal-modal-thumbs-outer::-webkit-scrollbar {
-    display: none;             /* Skrol xəttini vizual olaraq silir */
-}
-
-/* Firefox üçün skrol xəttini gizlədir */
-.gal-modal-thumbs-outer {
-    scrollbar-width: none; 
-}
-
-/* IE və Edge üçün skrol xəttini gizlədir */
-.gal-modal-thumbs-outer {
-    -ms-overflow-style: none; 
-}
-/* Kiçik Şəkillərin Özü (Daha böyük və uzun) */
-.gal-thumb-item {
-    width: 160px;              /* Enini daha da artırdıq (panoramik/uzun görünüş) */
-    height: 100px;             /* Hündürlüyünü artırdıq (böyük görünüş) */
-    object-fit: cover;         /* Şəkillərin dartılmasını və korlanmasını önləyir */
-    border-radius: 4px;        /* Kənarların yüngül yumşaldılması */
-    cursor: pointer;
-    opacity: 0.4;              /* Seçilməyən şəkillər arxa fona uyğun tündləşir */
-    transition: all 0.2s ease;
-    border: 3px solid transparent; 
-}
-
-/* Aktiv (seçilmiş) şəkil və üzərinə gəldikdə tam parlaq olması */
-.gal-thumb-item:hover, 
-.gal-thumb-item.thumb-active {
-    opacity: 1;                /* Kliklənəndə qırmızı rəng fona keçir və tam aydın olur */
-    border-color: #1aa37a;     /* Sizin yaşıl rəngdə çərçivə */
-}
+        .gal-thumb-item:hover,
+        .gal-thumb-item.thumb-active {
+            opacity: 1;
+            border-color: #1aa37a;
+        }
 
 
 
@@ -488,7 +465,7 @@
                         <li><a href="News.htm"> Xəbərlər</a></li>
                         <li><a href="elanlar.htm"> Elanlar</a></li>
                         <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                         <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+                        <li><a href="videoQalery.htm"> Video Qalerya</a></li>
 
                     </ul>
                 </li>
@@ -498,7 +475,6 @@
                             <li>Tez-tez verilən suallar</li>
                         </a>
                         <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                        <li>text6</li>
                     </ul>
                 </li>
                 <li>Karyera</li>
@@ -550,13 +526,13 @@
                         </ul>
                     </li>
                     <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
-                   <li><a href="layiheler.htm">Layihələr</a></li>
+                    <li><a href="layiheler.htm">Layihələr</a></li>
                     <li>Media<i class="fa-solid fa-caret-down"></i>
                         <ul>
                             <li><a href="News.htm"> Xəbərlər</a></li>
                             <li><a href="elanlar.htm"> Elanlar</a></li>
                             <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                             <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+                            <li><a href="videoQalery.htm"> Video Qalerya</a></li>
 
                         </ul>
                     </li>
@@ -566,7 +542,6 @@
                                 <li>Tez-tez verilən suallar</li>
                             </a>
                             <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                            <li>text6</li>
                         </ul>
                     </li>
                     <li>Karyera</li>
@@ -603,20 +578,20 @@
     </header>
 
     <div id="galLightboxModal" class="gal-modal">
-    <span class="gal-modal-close" id="galModalClose">&times;</span>
-    
-    <div class="gal-modal-content-wrapper">
-        <button class="gal-modal-arrow gal-modal-prev" id="galModalPrev">&#10094;</button>
-        <div class="gal-modal-main-box">
-            <img id="galModalMainImg" src="" alt="Böyük şəkil">
-        </div>
-        <button class="gal-modal-arrow gal-modal-next" id="galModalNext">&#10095;</button>
-    </div>
+        <span class="gal-modal-close" id="galModalClose">&times;</span>
 
-    <div class="gal-modal-thumbs-outer">
-        <div  class="gal-modal-thumbs-inner" id="galModalThumbsContainer"></div>
+        <div class="gal-modal-content-wrapper">
+            <button class="gal-modal-arrow gal-modal-prev" id="galModalPrev">&#10094;</button>
+            <div class="gal-modal-main-box">
+                <img id="galModalMainImg" src="" alt="Böyük şəkil">
+            </div>
+            <button class="gal-modal-arrow gal-modal-next" id="galModalNext">&#10095;</button>
+        </div>
+
+        <div class="gal-modal-thumbs-outer">
+            <div class="gal-modal-thumbs-inner" id="galModalThumbsContainer"></div>
+        </div>
     </div>
-</div>
 
 
 
@@ -717,9 +692,7 @@
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // 1. Şəkillərin siyahısı (Bura öz real şəkil kəsimlərini əlavə edə bilərsən)
-            // Səhifələmənin tam işləməsini görmək üçün bura nümunə şəkillər yerləşdirdim
-            const appGalDataset = [
+          const appGalDataset = [
                 { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
                 { src: "/img/LayihələrImg4.jpg", alt: "Foto 2" },
                 { src: "/img/LayihələrImg3.jpg", alt: "Foto 3" },
@@ -733,7 +706,7 @@
                 { src: "/img/LayihələrImg6.jpg", alt: "Foto 11" },
                 { src: "/img/LayihələrImg1.jpg", alt: "Foto 12" },
                 { src: "/img/LayihələrImg5.jpg", alt: "Foto 13" },
-                   { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
                 { src: "/img/LayihələrImg4.jpg", alt: "Foto 2" },
                 { src: "/img/LayihələrImg3.jpg", alt: "Foto 3" },
                 { src: "/img/LayihələrImg4.jpg", alt: "Foto 4" },
@@ -755,7 +728,7 @@
                 { src: "/img/LayihələrImg6.jpg", alt: "Foto 6" },
                 { src: "/img/LayihələrImg1.jpg", alt: "Foto 7" },
                 { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
-                 { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
                 { src: "/img/LayihələrImg4.jpg", alt: "Foto 9" },
                 { src: "/img/LayihələrImg5.jpg", alt: "Foto 10" },
                 { src: "/img/LayihələrImg6.jpg", alt: "Foto 11" },
@@ -776,31 +749,25 @@
                 { src: "/img/LayihələrImg5.jpg", alt: "Foto 13" },
             ];
 
-            const picsPerPage = 9; // Hər səhifədə göstəriləcək şəkil sayı
+            const picsPerPage = 9; 
             let currentGalPage = 1;
 
-            // Ümumi səhifə sayını əlimizdəki şəkillərə görə dinamik hesablayırıq
-            // Əgər sabit 24 səhifə istəyirsənsə, birbaša: const totalGalPages = 24; saxlaya bilərsən.
             const totalGalPages = Math.ceil(appGalDataset.length / picsPerPage) || 1;
 
-            // DOM Elementləri
             const gridWrapper = document.getElementById("mediaGalGrid");
             const pagesContainer = document.getElementById("mediaGalPagesContainer");
             const prevBtn = document.getElementById("mediaGalPrev");
             const nextBtn = document.getElementById("mediaGalNext");
 
-            // 2. Şəkilləri ekranda yeniləyən funksiya
             function displayGalImages() {
                 if (!gridWrapper) return;
 
-                gridWrapper.innerHTML = ""; // Köhnə şəkilləri silirik
+                gridWrapper.innerHTML = ""; 
 
-                // Cari səhifəyə düşən şəkillərin indeks aralığını tapırıq
                 const startPos = (currentGalPage - 1) * picsPerPage;
                 const endPos = startPos + picsPerPage;
                 const currentSelection = appGalDataset.slice(startPos, endPos);
 
-                // Yeni şəkilləri HTML-ə doldururuq
                 currentSelection.forEach(pic => {
                     const itemDiv = document.createElement("div");
                     itemDiv.classList.add("media-gal-item");
@@ -814,18 +781,15 @@
                 });
             }
 
-            // 3. Səhifələmə düymələrini quran funksiya (Sənin yazdığın kodun təkmilləşdirilmişi)
             function renderGalPagination() {
                 pagesContainer.innerHTML = "";
 
-                // Qayda: Həmişə ilk səhifəni göstər
                 appendPageButton(1);
 
                 if (currentGalPage > 3) {
                     appendDots();
                 }
 
-                // Cari səhifənin ətrafındakı nömrələr
                 let startPage = Math.max(2, currentGalPage - 1);
                 let endPage = Math.min(totalGalPages - 1, currentGalPage + 1);
 
@@ -837,12 +801,10 @@
                     appendDots();
                 }
 
-                // Qayda: Həmişə son səhifəni göstər
                 if (totalGalPages > 1) {
                     appendPageButton(totalGalPages);
                 }
 
-                // Ox düymələrinin aktivlik vəziyyəti
                 prevBtn.disabled = currentGalPage === 1;
                 nextBtn.disabled = currentGalPage === totalGalPages;
             }
@@ -859,7 +821,6 @@
                 btn.addEventListener("click", () => {
                     currentGalPage = pageNumber;
 
-                    // 🔥 ƏSAS DÜZƏLİŞ: Həm düymələri, həm də şəkilləri eyni anda yeniləyirik!
                     displayGalImages();
                     renderGalPagination();
                 });
@@ -874,7 +835,6 @@
                 pagesContainer.appendChild(dots);
             }
 
-            // Ox düymələrinin klik hadisələri
             prevBtn.addEventListener("click", () => {
                 if (currentGalPage > 1) {
                     currentGalPage--;
@@ -891,7 +851,6 @@
                 }
             });
 
-            // Səhifə ilk dəfə açılanda həm şəkilləri çıxarırıq, həm düymələri qururuq
             displayGalImages();
             renderGalPagination();
         });
@@ -900,250 +859,234 @@
 
 
         document.addEventListener("DOMContentLoaded", function () {
-    // Sizin mövcud şəkil massiviniz
-    const appGalDataset = [
-        { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
-        { src: "/img/LayihələrImg4.jpg", alt: "Foto 2" },
-        { src: "/img/LayihələrImg3.jpg", alt: "Foto 3" },
-        { src: "/img/LayihələrImg4.jpg", alt: "Foto 4" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 5" },
-        { src: "/img/LayihələrImg6.jpg", alt: "Foto 6" },
-        { src: "/img/LayihələrImg1.jpg", alt: "Foto 7" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
-        { src: "/img/LayihələrImg4.jpg", alt: "Foto 9" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 10" },
-        { src: "/img/LayihələrImg6.jpg", alt: "Foto 11" },
-        { src: "/img/LayihələrImg1.jpg", alt: "Foto 12" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 13" },
-        { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
-        { src: "/img/LayihələrImg4.jpg", alt: "Foto 2" },
-        { src: "/img/LayihələrImg3.jpg", alt: "Foto 3" },
-        { src: "/img/LayihələrImg4.jpg", alt: "Foto 4" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 5" },
-        { src: "/img/LayihələrImg6.jpg", alt: "Foto 6" },
-        { src: "/img/LayihələrImg1.jpg", alt: "Foto 7" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
-        { src: "/img/LayihələrImg4.jpg", alt: "Foto 9" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 10" },
-        { src: "/img/LayihələrImg6.jpg", alt: "Foto 11" },
-        { src: "/img/LayihələrImg1.jpg", alt: "Foto 12" },
-        { src: "/img/LayihələrImg5.jpg", alt: "Foto 13" },
-        { src: "/img/LayihələrImg3.jpg", alt: "Foto 14" }
-    ];
+            const appGalDataset = [
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
+                { src: "/img/LayihələrImg4.jpg", alt: "Foto 2" },
+                { src: "/img/LayihələrImg3.jpg", alt: "Foto 3" },
+                { src: "/img/LayihələrImg4.jpg", alt: "Foto 4" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 5" },
+                { src: "/img/LayihələrImg6.jpg", alt: "Foto 6" },
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 7" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
+                { src: "/img/LayihələrImg4.jpg", alt: "Foto 9" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 10" },
+                { src: "/img/LayihələrImg6.jpg", alt: "Foto 11" },
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 12" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 13" },
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 1" },
+                { src: "/img/LayihələrImg4.jpg", alt: "Foto 2" },
+                { src: "/img/LayihələrImg3.jpg", alt: "Foto 3" },
+                { src: "/img/LayihələrImg4.jpg", alt: "Foto 4" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 5" },
+                { src: "/img/LayihələrImg6.jpg", alt: "Foto 6" },
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 7" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 8" },
+                { src: "/img/LayihələrImg4.jpg", alt: "Foto 9" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 10" },
+                { src: "/img/LayihələrImg6.jpg", alt: "Foto 11" },
+                { src: "/img/LayihələrImg1.jpg", alt: "Foto 12" },
+                { src: "/img/LayihələrImg5.jpg", alt: "Foto 13" },
+                { src: "/img/LayihələrImg3.jpg", alt: "Foto 14" }
+            ];
 
-    const picsPerPage = 9; 
-    let currentGalPage = 1;
-    const totalGalPages = Math.ceil(appGalDataset.length / picsPerPage) || 1;
+            const picsPerPage = 9;
+            let currentGalPage = 1;
+            const totalGalPages = Math.ceil(appGalDataset.length / picsPerPage) || 1;
 
-    // Mövcud DOM elementləri
-    const gridWrapper = document.getElementById("mediaGalGrid");
-    const pagesContainer = document.getElementById("mediaGalPagesContainer");
-    const prevBtn = document.getElementById("mediaGalPrev");
-    const nextBtn = document.getElementById("mediaGalNext");
+            const gridWrapper = document.getElementById("mediaGalGrid");
+            const pagesContainer = document.getElementById("mediaGalPagesContainer");
+            const prevBtn = document.getElementById("mediaGalPrev");
+            const nextBtn = document.getElementById("mediaGalNext");
 
-    // MODAL DOM Elementləri
-    const modal = document.getElementById("galLightboxModal");
-    const modalMainImg = document.getElementById("galModalMainImg");
-    const modalClose = document.getElementById("galModalClose");
-    const modalPrev = document.getElementById("galModalPrev");
-    const modalNext = document.getElementById("galModalNext");
-    const thumbsContainer = document.getElementById("galModalThumbsContainer");
+            const modal = document.getElementById("galLightboxModal");
+            const modalMainImg = document.getElementById("galModalMainImg");
+            const modalClose = document.getElementById("galModalClose");
+            const modalPrev = document.getElementById("galModalPrev");
+            const modalNext = document.getElementById("galModalNext");
+            const thumbsContainer = document.getElementById("galModalThumbsContainer");
 
-    let activeModalIndex = 0; // Hal-hazırda modalda açıq olan şəkil indeksi (Ümumi massiv üzrə)
+            let activeModalIndex = 0;
 
-    // Şəkilləri ekrana çıxaran funksiya
-    function displayGalImages() {
-        if (!gridWrapper) return;
-        gridWrapper.innerHTML = ""; 
+            function displayGalImages() {
+                if (!gridWrapper) return;
+                gridWrapper.innerHTML = "";
 
-        const startPos = (currentGalPage - 1) * picsPerPage;
-        const endPos = startPos + picsPerPage;
-        
-        // Həm şəkli, həm də onun əsl massivdəki real indeksini götürürük
-        appGalDataset.forEach((pic, globalIndex) => {
-            if (globalIndex >= startPos && globalIndex < endPos) {
-                const itemDiv = document.createElement("div");
-                itemDiv.classList.add("media-gal-item");
+                const startPos = (currentGalPage - 1) * picsPerPage;
+                const endPos = startPos + picsPerPage;
 
-                const imgEl = document.createElement("img");
-                imgEl.src = pic.src;
-                imgEl.alt = pic.alt;
-                imgEl.style.cursor = "pointer";
+                appGalDataset.forEach((pic, globalIndex) => {
+                    if (globalIndex >= startPos && globalIndex < endPos) {
+                        const itemDiv = document.createElement("div");
+                        itemDiv.classList.add("media-gal-item");
 
-                // Şəkilə kliklədikdə Modalı açırıq
-                itemDiv.addEventListener("click", () => {
-                    openLightbox(globalIndex);
+                        const imgEl = document.createElement("img");
+                        imgEl.src = pic.src;
+                        imgEl.alt = pic.alt;
+                        imgEl.style.cursor = "pointer";
+
+                        itemDiv.addEventListener("click", () => {
+                            openLightbox(globalIndex);
+                        });
+
+                        itemDiv.appendChild(imgEl);
+                        gridWrapper.appendChild(itemDiv);
+                    }
                 });
-
-                itemDiv.appendChild(imgEl);
-                gridWrapper.appendChild(itemDiv);
-            }
-        });
-    }
-
-    // Modalı açan funksiya
-    function openLightbox(index) {
-        activeModalIndex = index;
-        modal.style.display = "flex";
-        updateModalContent();
-        renderModalThumbnails();
-    }
-
-    // Modaldakı əsas şəkli yeniləyən funksiya
-    function updateModalContent() {
-        const currentPic = appGalDataset[activeModalIndex];
-        modalMainImg.src = currentPic.src;
-        modalMainImg.alt = currentPic.alt;
-
-        // Aktiv thumbnail-i rəngləmək üçün sinifləri yeniləyirik
-        const allThumbs = document.querySelectorAll(".gal-thumb-item");
-        allThumbs.forEach((thumb, idx) => {
-            if (idx === activeModalIndex) {
-                thumb.classList.add("thumb-active");
-                thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            } else {
-                thumb.classList.remove("thumb-active");
-            }
-        });
-    }
-
-    // Modalın altındakı bütün şəkillərin kiçik versiyalarını (Thumbnails) çıxaran funksiya
-    function renderModalThumbnails() {
-        thumbsContainer.innerHTML = "";
-        appGalDataset.forEach((pic, idx) => {
-            const thumb = document.createElement("img");
-            thumb.src = pic.src;
-            thumb.alt = pic.alt;
-            thumb.classList.add("gal-thumb-item");
-            
-            if (idx === activeModalIndex) {
-                thumb.classList.add("thumb-active");
             }
 
-            thumb.addEventListener("click", () => {
-                activeModalIndex = idx;
+            function openLightbox(index) {
+                activeModalIndex = index;
+                modal.style.display = "flex";
+                updateModalContent();
+                renderModalThumbnails();
+            }
+
+            function updateModalContent() {
+                const currentPic = appGalDataset[activeModalIndex];
+                modalMainImg.src = currentPic.src;
+                modalMainImg.alt = currentPic.alt;
+
+                const allThumbs = document.querySelectorAll(".gal-thumb-item");
+                allThumbs.forEach((thumb, idx) => {
+                    if (idx === activeModalIndex) {
+                        thumb.classList.add("thumb-active");
+                        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    } else {
+                        thumb.classList.remove("thumb-active");
+                    }
+                });
+            }
+
+            function renderModalThumbnails() {
+                thumbsContainer.innerHTML = "";
+                appGalDataset.forEach((pic, idx) => {
+                    const thumb = document.createElement("img");
+                    thumb.src = pic.src;
+                    thumb.alt = pic.alt;
+                    thumb.classList.add("gal-thumb-item");
+
+                    if (idx === activeModalIndex) {
+                        thumb.classList.add("thumb-active");
+                    }
+
+                    thumb.addEventListener("click", () => {
+                        activeModalIndex = idx;
+                        updateModalContent();
+                    });
+
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            modalPrev.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (activeModalIndex > 0) {
+                    activeModalIndex--;
+                } else {
+                    activeModalIndex = appGalDataset.length - 1; 
+                }
                 updateModalContent();
             });
 
-            thumbsContainer.appendChild(thumb);
-        });
-    }
+            modalNext.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (activeModalIndex < appGalDataset.length - 1) {
+                    activeModalIndex++;
+                } else {
+                    activeModalIndex = 0; 
+                }
+                updateModalContent();
+            });
 
-    // Modal Ox Düymələri Funksiyası
-    modalPrev.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (activeModalIndex > 0) {
-            activeModalIndex--;
-        } else {
-            activeModalIndex = appGalDataset.length - 1; // Başa qayıtsın
-        }
-        updateModalContent();
-    });
+            modalClose.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
 
-    modalNext.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (activeModalIndex < appGalDataset.length - 1) {
-            activeModalIndex++;
-        } else {
-            activeModalIndex = 0; // Sona çatanda əvvələ qayıtsın
-        }
-        updateModalContent();
-    });
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
 
-    // Modalı Bağlamaq
-    modalClose.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
+            document.addEventListener("keydown", (e) => {
+                if (modal.style.display === "flex") {
+                    if (e.key === "ArrowRight") modalNext.click();
+                    if (e.key === "ArrowLeft") modalPrev.click();
+                    if (e.key === "Escape") modal.style.display = "none";
+                }
+            });
 
-    // Boş yerə klikləyəndə də bağlansın
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
+            function renderGalPagination() {
+                pagesContainer.innerHTML = "";
+                appendPageButton(1);
 
-    // Klaviaturadan sağ-sol və ESC düymələri ilə idarəetmə
-    document.addEventListener("keydown", (e) => {
-        if (modal.style.display === "flex") {
-            if (e.key === "ArrowRight") modalNext.click();
-            if (e.key === "ArrowLeft") modalPrev.click();
-            if (e.key === "Escape") modal.style.display = "none";
-        }
-    });
+                if (currentGalPage > 3) {
+                    appendDots();
+                }
 
-    // SƏHİFƏLƏMƏ DÜYMƏLƏRİ (Sizin mövcud kodunuz)
-    function renderGalPagination() {
-        pagesContainer.innerHTML = "";
-        appendPageButton(1);
+                let startPage = Math.max(2, currentGalPage - 1);
+                let endPage = Math.min(totalGalPages - 1, currentGalPage + 1);
 
-        if (currentGalPage > 3) {
-            appendDots();
-        }
+                for (let i = startPage; i <= endPage; i++) {
+                    appendPageButton(i);
+                }
 
-        let startPage = Math.max(2, currentGalPage - 1);
-        let endPage = Math.min(totalGalPages - 1, currentGalPage + 1);
+                if (currentGalPage < totalGalPages - 2) {
+                    appendDots();
+                }
 
-        for (let i = startPage; i <= endPage; i++) {
-            appendPageButton(i);
-        }
+                if (totalGalPages > 1) {
+                    appendPageButton(totalGalPages);
+                }
 
-        if (currentGalPage < totalGalPages - 2) {
-            appendDots();
-        }
+                prevBtn.disabled = currentGalPage === 1;
+                nextBtn.disabled = currentGalPage === totalGalPages;
+            }
 
-        if (totalGalPages > 1) {
-            appendPageButton(totalGalPages);
-        }
+            function appendPageButton(pageNumber) {
+                const btn = document.createElement("button");
+                btn.classList.add("media-gal-btn");
+                btn.textContent = pageNumber;
 
-        prevBtn.disabled = currentGalPage === 1;
-        nextBtn.disabled = currentGalPage === totalGalPages;
-    }
+                if (pageNumber === currentGalPage) {
+                    btn.classList.add("gal-active");
+                }
 
-    function appendPageButton(pageNumber) {
-        const btn = document.createElement("button");
-        btn.classList.add("media-gal-btn");
-        btn.textContent = pageNumber;
+                btn.addEventListener("click", () => {
+                    currentGalPage = pageNumber;
+                    displayGalImages();
+                    renderGalPagination();
+                });
 
-        if (pageNumber === currentGalPage) {
-            btn.classList.add("gal-active");
-        }
+                pagesContainer.appendChild(btn);
+            }
 
-        btn.addEventListener("click", () => {
-            currentGalPage = pageNumber;
+            function appendDots() {
+                const dots = document.createElement("span");
+                dots.classList.add("media-gal-dots");
+                dots.textContent = "...";
+                pagesContainer.appendChild(dots);
+            }
+
+            prevBtn.addEventListener("click", () => {
+                if (currentGalPage > 1) {
+                    currentGalPage--;
+                    displayGalImages();
+                    renderGalPagination();
+                }
+            });
+
+            nextBtn.addEventListener("click", () => {
+                if (currentGalPage < totalGalPages) {
+                    currentGalPage++;
+                    displayGalImages();
+                    renderGalPagination();
+                }
+            });
+
             displayGalImages();
             renderGalPagination();
         });
-
-        pagesContainer.appendChild(btn);
-    }
-
-    function appendDots() {
-        const dots = document.createElement("span");
-        dots.classList.add("media-gal-dots");
-        dots.textContent = "...";
-        pagesContainer.appendChild(dots);
-    }
-
-    prevBtn.addEventListener("click", () => {
-        if (currentGalPage > 1) {
-            currentGalPage--;
-            displayGalImages();
-            renderGalPagination();
-        }
-    });
-
-    nextBtn.addEventListener("click", () => {
-        if (currentGalPage < totalGalPages) {
-            currentGalPage++;
-            displayGalImages();
-            renderGalPagination();
-        }
-    });
-
-    // İlkin yüklənmə
-    displayGalImages();
-    renderGalPagination();
-});
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>

@@ -386,7 +386,6 @@ footer {
 
 .contactIcon i:hover {
     background-color: rgb(122, 127, 125, 0.2);
-    /* hover effekti */
 }
 
 .footerFlex {
@@ -414,9 +413,7 @@ main {
 main {
     display: flex;
     flex-direction: column;
-    /* yuxarı-aşağı */
     gap: 40px;
-    /* divlər arasındakı məsafə */
 }
 
 .title {
@@ -699,13 +696,6 @@ main {
 
 
 
-
-
-
-
-
-
-
 /* Böyük ekran: ≥795px */
 @media only screen and (min-width: 795px) {
 
@@ -967,57 +957,9 @@ main {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Orta ekran: ≤1200px */
 @media (max-width:1200px) {
-    
+
 
     .mediaCards {
         display: flex;
@@ -1061,23 +1003,6 @@ main {
         gap: 50px;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

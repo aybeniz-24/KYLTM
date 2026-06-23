@@ -122,24 +122,21 @@
 
         }
 
-        .buttonDiv{
+        .buttonDiv {
             display: flex;
             margin: 20px;
-        
+
         }
-
-
 
 
         .tab-container {
             display: flex;
             width: 100%;
             max-width: 800px;
-            gap: 10px; /* Düymələr arasındakı boşluq */
+            gap: 10px;
             padding: 20px;
         }
 
-        /* Ümumi düyməstilləri */
         .tab-button {
             flex: 1;
             display: flex;
@@ -154,96 +151,91 @@
             transition: all 0.3s ease;
         }
 
-        /* Düymə daxilindəki ikonların stili */
+
         .tab-button i {
             margin-right: 12px;
             font-size: 22px;
         }
 
-        /* 1. Hüquqi sənədlər (Aktiv/Tünd yaşıl) */
+
         .tab-legal {
-            background-color: #1e4634; /* Şəkildəki tünd yaşıl tonu */
+            background-color: #1e4634;
             color: #ffffff;
         }
 
         .tab-legal:hover {
-            background-color: #163527; /* Üstünə gələndə bir az tündləşmə */
+            background-color: #163527;
         }
 
-        /* 2. Digər sənədlər (Passiv/Açıq boz) */
+
         .tab-others {
-            background-color: #f4f4f4; /* Şəkildəki açıq fon */
-            color: #1e4634; /* Yazı və ikon rəngi */
+            background-color: #f4f4f4;
+            color: #1e4634;
         }
 
         .tab-others:hover {
-            background-color: #e9e9e9; /* Üstünə gələndə bir az tündləşmə */
+            background-color: #e9e9e9;
         }
-
-
 
 
 
         .document-list {
-    list-style: none;
-    width: 100%;
-    max-width: 800px;
-    padding: 0 20px;
-}
+            list-style: none;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 20px;
+        }
 
-/* Hər bir siyahı elementi */
-.document-item {
-    border-bottom: 1px solid #e0e0e0; /* Elementlər arasındakı incə xətt */
-    position: relative;
-}
 
-/* Kliklənə bilən link sahəsi */
-.document-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    color: #2c3e50; /* Yazı rəngi */
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 1.5;
-    font-weight: 500;
-    transition: color 0.2s ease;
-}
+        .document-item {
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
 
-/* Şəkildəki ikinci elementdə görünən yaşıl aktiv xətt effekti (Hover zamanı) */
-.document-item::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #1e4634; /* Aktiv yaşıl rəng */
-    transition: width 0.3s ease;
-}
+        .document-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
 
-.document-item:hover::after {
-    width: 100%;
-}
+     
+        .document-item::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #1e4634;
+            transition: width 0.3s ease;
+        }
 
-/* Sağ tərəfdəki ox ikonu */
-.document-link i {
-    color: #95a5a6; /* Oxun ilkin solğun rəngi */
-    font-size: 14px;
-    margin-left: 20px;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
+        .document-item:hover::after {
+            width: 100%;
+        }
 
-/* Üstünə gələndə ikonun və yazının rənginin dəyişməsi */
-.document-link:hover {
-    color: #1e4634;
-}
+        .document-link i {
+            color: #95a5a6;
+            font-size: 14px;
+            margin-left: 20px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
 
-.document-link:hover i {
-    color: #1e4634;
-    transform: translate(2px, -2px); /* Oxun azca yuxarı-sağa hərəkəti */
-}
+        .document-link:hover {
+            color: #1e4634;
+        }
+
+        .document-link:hover i {
+            color: #1e4634;
+            transform: translate(2px, -2px);
+        }
 
         @media (max-width: 992px) {
 
@@ -290,7 +282,7 @@
                     </li>
 
                     <div id="content"></div>
-                   <li><a href="/Struktur.htm">Struktur</a></li>
+                    <li><a href="/Struktur.htm">Struktur</a></li>
                     <li>Beynəlxalq əlaqə</li>
                     <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                 </ul>
@@ -302,7 +294,7 @@
                         <li><a href="News.htm"> Xəbərlər</a></li>
                         <li><a href="elanlar.htm"> Elanlar</a></li>
                         <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                         <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+                        <li><a href="videoQalery.htm"> Video Qalerya</a></li>
                     </ul>
                 </li>
                 <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
@@ -311,7 +303,6 @@
                             <li>Tez-tez verilən suallar</li>
                         </a>
                         <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                        <li>text6</li>
                     </ul>
                 </li>
                 <li>Karyera</li>
@@ -362,14 +353,14 @@
                             <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                         </ul>
                     </li>
-                   <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
+                    <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
                     <li><a href="layiheler.htm">Layihələr</a></li>
                     <li>Media<i class="fa-solid fa-caret-down"></i>
                         <ul>
                             <li><a href="News.htm"> Xəbərlər</a></li>
                             <li><a href="elanlar.htm"> Elanlar</a></li>
                             <li><a href="/fotoQalery.htm"> Foto Qalerya</a></li>
-                             <li><a href="videoQalery.htm"> Video Qalerya</a></li>
+                            <li><a href="videoQalery.htm"> Video Qalerya</a></li>
                         </ul>
                     </li>
                     <li>Əlaqə<i class="fa-solid fa-caret-down"></i>
@@ -377,8 +368,8 @@
                             <a href="/faq.htm">
                                 <li>Tez-tez verilən suallar</li>
                             </a>
-                           <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
-                            
+                            <li><a href="/elaqeMelumatlari.htm"> Əlaqə məlumatları</a></li>
+
                         </ul>
                     </li>
                     <li>Karyera</li>
@@ -419,97 +410,106 @@
         <p class="titleText">Bunları bilmək faydalıdır</p>
 
         <div class="tab-container">
-        <a href="#" class="tab-button tab-legal">
-            <i class="fa-solid fa-file-signature"></i>
-            Hüquqi sənədlər
-        </a>
+            <a href="#" class="tab-button tab-legal">
+                <i class="fa-solid fa-file-signature"></i>
+                Hüquqi sənədlər
+            </a>
 
-        <a href="#" class="tab-button tab-others">
-            <i class="fa-regular fa-file-lines"></i>
-            Digər sənədlər
-        </a>
-    </div>
-
-
+            <a href="#" class="tab-button tab-others">
+                <i class="fa-regular fa-file-lines"></i>
+                Digər sənədlər
+            </a>
+        </div>
 
 
 
 
-    <ul class="document-list">
-    
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Azərbaycan Respublikasının Torpaq Codeksi</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>“Dövlət torpaq kadastrı, torpaqların monitorinqi və yerquruluşu haqqında” Azərbaycan Respublikası Qanununu</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>“Ərazi quruluşu və inzibati ərazi bölgüsü haqqında” Azərbaycan Respublikasının Qanunu</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+        <ul class="document-list">
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Geodeziya və kartoqrafiya haqqında Azərbaycan Respublikasının Qanunu</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Azərbaycan Respublikasının Torpaq Codeksi</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Torpaq islahatı haqqında Azərbaycan Respublikasının Qanunu</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>“Dövlət torpaq kadastrı, torpaqların monitorinqi və yerquruluşu haqqında” Azərbaycan
+                        Respublikası Qanununu</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Azərbaycan Respublikası Nazirlər Kabinetinin 1999-cu il 7 iyun tarixli 94 nömrəli qərarı ilə təsdiq edilmiş “Torpaqların texniki uçotunun aparılması qaydaları”</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>“Ərazi quruluşu və inzibati ərazi bölgüsü haqqında” Azərbaycan Respublikasının Qanunu</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Azərbaycan Respublikası Nazirlər Kabinetinin 2000-ci il 15 mart tarixli, 42 nömrəli qərarı ilə təsdiq edilmiş “Örüş, otlaq və biçənək sahələrinin istifadəyə və icarəyə verilməsi, habelə istifadə edilməsi” Qaydaları</span>
-            <i class="fa-solid fa-awesome fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Geodeziya və kartoqrafiya haqqında Azərbaycan Respublikasının Qanunu</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Azərbaycan Respublikasının 15 mart 2002-ci il tarixli 274-IIQ nömrəli Qanunu ilə təsdiq edilmiş “Bələdiyyə torpaqlarının ayrılmasına dair sənədlərin hazırlanması və razılaşdırılması qaydaları haqqında Əsasnamə”</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Torpaq islahatı haqqında Azərbaycan Respublikasının Qanunu</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>Azərbaycan Respublikası Prezidentinin 2010-cu il 10 fevral tarixli 218 nömrəli fərmanı ilə təsdiq edilmiş “Azərbaycan Respublikasının ərazi vahidlərinin, inzibati ərazi dairələrinin və sahə inzibati ərazi dairələrinin xəritəsinin hazırlanması Qaydası”</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Azərbaycan Respublikası Nazirlər Kabinetinin 1999-cu il 7 iyun tarixli 94 nömrəli qərarı ilə
+                        təsdiq edilmiş “Torpaqların texniki uçotunun aparılması qaydaları”</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-    <li class="document-item">
-        <a href="#" class="document-link">
-            <span>“Torpaqların dövlət ehtiyacları üçün alınması haqqında” 20 aprel 2010-cu il tarixli 987-IIIQ nömrəli Azərbaycan Respublikasının Qanunu</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-    </li>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Azərbaycan Respublikası Nazirlər Kabinetinin 2000-ci il 15 mart tarixli, 42 nömrəli qərarı ilə
+                        təsdiq edilmiş “Örüş, otlaq və biçənək sahələrinin istifadəyə və icarəyə verilməsi, habelə
+                        istifadə edilməsi” Qaydaları</span>
+                    <i class="fa-solid fa-awesome fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-</ul>
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Azərbaycan Respublikasının 15 mart 2002-ci il tarixli 274-IIQ nömrəli Qanunu ilə təsdiq
+                        edilmiş “Bələdiyyə torpaqlarının ayrılmasına dair sənədlərin hazırlanması və razılaşdırılması
+                        qaydaları haqqında Əsasnamə”</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
 
-      
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>Azərbaycan Respublikası Prezidentinin 2010-cu il 10 fevral tarixli 218 nömrəli fərmanı ilə
+                        təsdiq edilmiş “Azərbaycan Respublikasının ərazi vahidlərinin, inzibati ərazi dairələrinin və
+                        sahə inzibati ərazi dairələrinin xəritəsinin hazırlanması Qaydası”</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
+
+            <li class="document-item">
+                <a href="#" class="document-link">
+                    <span>“Torpaqların dövlət ehtiyacları üçün alınması haqqında” 20 aprel 2010-cu il tarixli 987-IIIQ
+                        nömrəli Azərbaycan Respublikasının Qanunu</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </li>
+
+        </ul>
+
+
     </main>
 
     <footer>
