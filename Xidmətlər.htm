@@ -167,7 +167,273 @@
             background: #eee;
             color: black;
         }
+/* =========================================================================
+   ƏSAS XİDMƏTLƏR SƏHİFƏSİ ÜMUMİ SEÇİMLƏRİ (DESKTOP)
+   ========================================================================= */
+.services-page {
+    background-color: #ffffff;
+    padding: 40px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
 
+.services-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services-main-title {
+    font-size: 2.2rem;
+    color: #1b4d3e;
+    margin-bottom: 35px;
+    font-weight: 700;
+}
+
+/* Hər xidmət bloku ardıcıl aşağı doğru sıralanır */
+.service-section {
+    margin-bottom: 45px;
+    width: 100%;
+}
+
+.service-section-title {
+    font-size: 1.6rem;
+    color: #1b4d3e;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+/* =========================================================================
+   BAŞLIQ VƏ ŞƏKLİ EYNI HİZAYA GƏTİRƏN YENİ STRUKTUR
+   ========================================================================= */
+.service-section {
+    /* 🔥 QIZIL TOXUNUŞ: Bölmənin özünü şəklin maksimum eni (750px) səviyyəsinə çəkirik */
+    max-width: 750px; 
+    
+    /* 🔥 Həm başlığı, həm şəkli, həm də siyahını blok halında səhifənin ortasına gətirir */
+    margin: 0 auto 50px auto; 
+    width: 100%;
+}
+
+.service-section-title {
+    font-size: 1.6rem;
+    color: #1b4d3e;
+    /* Şəkillə eyni hizada başladığı üçün əlavə sol boşluğa ehtiyac yoxdur */
+    margin-left: 0; 
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Şəkil qutusu artıq üst qatdan (section-dan) eni götürür */
+.service-image-box {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.service-image-box img {
+    width: 100%;
+    height: 424px; 
+    display: block;
+    object-fit: cover; 
+}
+
+/* Siyahı və alt başlıq da avtomatik olaraq eyni sol xətt həndəsəsini qoruyacaq */
+.service-section-subtitle {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* =========================================================================
+   RESPONSIVE (Mobil və Planşet Tənzimləməsi)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .service-section {
+        /* Mobil cihazlarda kənarlara tam yapışmaması üçün daxili boşluq */
+        padding: 0 15px; 
+        box-sizing: border-box;
+    }
+    
+    .service-image-box img {
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+    .fa-bars{
+        color: #6e7576;
+    }
+}
+/* Yeni vizual qaydaya görə şəkil tam genişlikdə blokdur */
+.service-image-box {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.service-image-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Şəklin altındakı kiçik boz izahat mətni */
+.service-section-subtitle {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* 🔥 GÖNDƏRİLƏN MAKETDƏKİ XƏTLİ VƏ YAŞIL NÖMRƏLİ SİYAHI */
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: service-counter;
+}
+
+.service-list li {
+    counter-increment: service-counter;
+    position: relative;
+    padding: 15px 0 15px 40px;
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    /* Elementlər arasındakı incə ayırıcı xətt */
+    border-bottom: 1px solid #f1f2f6; 
+}
+
+/* Siyahının son elementinin altındakı xətti qaldırırıq */
+.service-list li:last-child {
+    border-bottom: none;
+}
+
+/* Sol tərəfdəki üst nömrə effekti (Örnək: 01, 02) */
+.service-list li::before {
+    content: "0" counter(service-counter);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    color: #2ecc71; /* Yaşıl nömrələr */
+    font-weight: bold;
+    font-size: 0.85rem;
+    font-feature-settings: "tnum"; /* Sabit enli nömrə nizamı */
+}
+
+.service-list li:nth-child(n+10)::before {
+    content: counter(service-counter);
+}
+
+.service-list li span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+/* =========================================================================
+   YENİLƏNMİŞ ŞƏKİL KONTEYNERİ (DESKTOP ÜÇÜN MƏRKƏZLİ VƏ KIÇILDILMIŞ)
+   ========================================================================= */
+.service-image-box {
+    width: 100%;
+    /* 🔥 Şəklin masaüstü ekranda çox böyük olmaması üçün maksimum en təyin edirik */
+    max-width: 750px; 
+    
+    /* 🔥 Şəkli konteyner daxilində tam ortalayır və sağ-soldan boşluq buraxır */
+    margin: 0 auto 20px auto; 
+    
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.service-image-box img {
+    width: 100%;
+    /* 🔥 Şəkillərin çox şaquli (dik) uzanmaması üçün ideal hündürlük həddi */
+    height: 424px; 
+    display: block;
+    
+    /* 🔥 Şəkil sıxılmasın və ya dartılmasın, proporsiyasını qoruyaraq qutuya otursun */
+    object-fit: cover; 
+}
+
+/* =========================================================================
+   RESPONSIVE DÜZƏLİŞLƏR (Planşet və Mobil cihazlarda şəklin tam oturması üçün)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .service-image-box img {
+        /* Mobil və planşetdə ekran kiçildiyi üçün hündürlüyü avtomatik nizamlayırıq */
+        height: auto; 
+        aspect-ratio: 16 / 9; /* Mobil üçün ideal ölçü nisbəti */
+    }
+}
+
+/* =========================================================================
+   TABLET RESPONSIVE REJİMİ (768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .services-container {
+        padding: 0 15px;
+    }
+
+    .services-main-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .service-section-title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .service-list li {
+        font-size: 0.93rem;
+        padding: 12px 0 12px 35px;
+    }
+
+    .service-list li::before {
+        top: 11px;
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================================================================
+   MOBİL RESPONSIVE REJİMİ (360px - 430px)
+   ========================================================================= */
+@media (max-width: 480px) {
+    .services-page {
+        padding: 25px 0;
+    }
+
+    .services-main-title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .service-section-title {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+    }
+
+    .service-section-subtitle {
+        font-size: 0.82rem;
+        margin-bottom: 10px;
+    }
+
+    .service-list li {
+        font-size: 0.88rem;
+        padding: 10px 0 10px 30px;
+    }
+
+    .service-list li::before {
+        top: 9px;
+        font-size: 0.75rem;
+    }
+}
 
         @media(max-width:768px) {
 
@@ -208,7 +474,7 @@
                     <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                 </ul>
                 </li>
-               <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
+                <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
                 <li>Layihələr</li>
                 <li>Media<i class="fa-solid fa-caret-down"></i>
                     <ul>
@@ -274,7 +540,7 @@
                             <li><a href="/bunlariBilmekFaydalidir.htm">Bunları bilmək faydalıdır</a></li>
                         </ul>
                     </li>
-                    <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
+                   <li><a href="Xidmətlər.htm">Xidmətlər</a></li>
                     <li>Layihələr</li>
                     <li>Media<i class="fa-solid fa-caret-down"></i>
                         <ul>
@@ -329,189 +595,58 @@
 
 
     <main>
-        <p class="titleText">Elanlar</p>
+        <p class="titleText">Xidmətlər</p>
 
+<main id="main" class="services-page">
+    <div class="services-container">
+       
 
-
-
-        <div class="boxArea" id="mainContent">
-
-            <!-- Page 1 -->
-            <div class="pageGroup activePage">
-                <div class="itemBox">
-
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/LayihələrImg2.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>07 İyun 2024</span>
-                            <p>İpoteka krediti əldə edən zaman ən çox girov qoyulan əmlaklar</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/media3.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>02 İyun 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/newsImg3.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/newsImg3.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/newsImg4.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/LayihələrImg3.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/LayihələrImg5.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/newsImg3.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/LayihələrImg4.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="service-section">
+            <h2 class="service-section-title">Torpaq tədqiqatı</h2>
+            <div class="service-image-box">
+                <img src="/img/xidemetler1.jpg" alt="Torpaq tədqiqatı">
             </div>
+            <p class="service-section-subtitle">Torpaq tədqiqatı üzrə aşağıdakı xidmətlərdən istifadə edə bilərsiniz:</p>
+            <ol class="service-list">
+                <li><span>Geodeziya işləri</span></li>
+                <li><span>Dövlət daşınmaz əmlak kadastrının hazırlanması</span></li>
+                <li><span>Torpaq idarəçiliyi və torpaq istifadəsinin planlaşdırılması</span></li>
+                <li><span>Hava fotoqrafiyası və ortofotoxəritələrin yaradılması</span></li>
+                <li><span>Torpaq məsləhət və hüquqi xidmətlər</span></li>
+                <li><span>Şoran və şorakət torpaqlar üçün kompleks təsərrüfatdaxili layihələrin hazırlanması</span></li>
+                <li><span>Dağ müəssisələri, dağ-mədən ayırma işlərinə başlamazdan əvvəl rekultivasiya layihələrinin hazırlanması</span></li>
+            </ol>
+        </section>
 
-
-            <!-- Page 2 -->
-            <div class="pageGroup">
-                <div class="itemBox">
-
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/LayihələrImg2.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>07 İyun 2024</span>
-                            <p>İpoteka krediti əldə edən zaman ən çox girov qoyulan əmlaklar</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/media3.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>02 İyun 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="itemBox">
-                    <div class="card" onclick="openDetail(this)">
-                        <img src="/img/newsImg3.png" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <span>27 Aprel 2024</span>
-                            <p>Texniki pasport dair plan və ölçü sənədlərin verilməsi elektronlaşdırılıb</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="service-section">
+            <h2 class="service-section-title">Geobotaniki tədqiqat</h2>
+            <div class="service-image-box">
+                <img src="/img/xidemetler2.png" alt="Geobotaniki tədqiqat">
             </div>
+            <p class="service-section-subtitle">Geobotaniki tədqiqat üzrə aşağıdakı xidmətlərdən istifadə edə bilərsiniz:</p>
+            <ol class="service-list">
+                <li><span>Dövlət mülkiyyətində və Bələdiyyənin ehtiyat fondunda olan örüş (otlaq) və biçənək sahələrinin heyvandarlığın inkişafı məqsədilə hüquqi və fiziki şəxslərin icarəsinə və istifadəsinə verilən zaman bitki növlərinin təyini, örüş-otlaq sahələrinin tutumunun (1 hektara düşən baş sayı) və yem vahidinin hesablanması</span></li>
+                <li><span>Hüquqi və fiziki şəxslərin müraciətləri əsasında torpaq örtüyü korlanmış örüş (otlaq) və biçənək sahələrində geobotaniki tədqiqatın aparılması və rekultivasiya layihələrinin hazırlanması</span></li>
+            </ol>
+        </section>
 
-
-            <div class="newsDetail" id="newsDetail">
-                <p style="font-size: 28px; font-weight: 600; color: #0C242A; padding: 20px 0; margin:0  auto;"
-                    id="detailText"></p>
-                <img id="detailImg" src="" style="width:100%; max-width:750px;">
-                <div class="container">
-                    <span>07 İyun 2024</span>
-                </div>
-                <div style="width:100%; max-width:750px;">
-                    <p
-                        style="padding: 20px 0; text-align: justify;  font-family: Inter; font-weight: 500; font-style: Medium; font-size: 16px; line-height: 26px; letter-spacing: 0%; ">
-                        Azərbaycan Respublikası Konstitusiyasının 109-cu maddəsinin 32-ci bəndini rəhbər tutaraq,
-                        Azərbaycan Respublikası İqtisadiyyat Nazirliyinin fəaliyyətinin təkmilləşdirilməsi məqsədilə
-                        qərara alıram:
-                        1. Azərbaycan Respublikası İqtisadiyyat Nazirliyinin (bundan sonra – Nazirlik) işçilərinin say
-                        həddi cəmi 4394 ştat vahidi (Azərbaycan Respublikasının xarici ölkələrdə fəaliyyət göstərən
-                        səfirlik və konsulluqlarında ticarət nümayəndələrinin aparatları istisna olmaqla), o cümlədən
-                        Nazirliyin Aparatının işçilərinin say həddi 409 ştat vahidi, strukturuna daxil olan Çağrı
-                        Mərkəzinin işçilərinin say həddi 55 ştat vahidi, regional bölmələrinin işçilərinin say həddi 86
-                        ştat vahidi, Nazirlik yanında Dövlət Vergi Xidməti Aparatının işçilərinin say həddi 429 ştat
-                        vahidi, strukturuna daxil olan qurumların işçilərinin say həddi 2460 ştat vahidi, Nazirlik
-                        yanında Əmlak Məsələləri Dövlət Xidməti Aparatının işçilərinin say həddi 260 ştat vahidi, yerli
-                        bölmələrinin işçilərinin say həddi 376 ştat vahidi, Nazirlik yanında Antiinhisar və İstehlak
-                        Bazarına Nəzarət Dövlət Xidmətinin Aparatının işçilərinin say həddi 214 ştat vahidi, yerli
-                        bölmələrinin işçilərinin say həddi 105 ştat vahidi müəyyən edilsin.
-                        2. “Azərbaycan Respublikası Vergilər Nazirliyinin strukturunun təsdiq edilməsi haqqında”
-                        Azərbaycan Respublikası Prezidentinin 2019-cu il 24 iyul tarixli 1340 nömrəli Sərəncamına əsasən
-                        Azərbaycan Respublikası Vergilər Nazirliyinin strukturuna daxil olan Çağrı Mərkəzi Nazirliyin
-                        strukturuna daxil edilsin.
-                        3. Nazirliyin tabeliyindəki İqtisadi İslahatlar Elmi-Tədqiqat İnstitutunun əsasında Nazirliyin
-                        tabeliyində “İqtisadi Elmi Tədqiqat İnstitutu” publik hüquqi şəxs yaradılsın.
-                        4. Nazirliyin tabeliyindəki Təsərrüfat Müəssisəsi və “Azərbaycan Respublikasının İqtisadiyyat
-                        Nazirliyinin funksiyalarının və strukturunun genişləndirilməsi haqqında” Azərbaycan Respublikası
-                        Prezidentinin 2019-cu il 23 oktyabr tarixli 845 nömrəli Fərmanı ilə Nazirliyin strukturuna daxil
-                        edilmiş Azərbaycan Respublikasının Əmlak Məsələləri Dövlət Komitəsinin (bundan sonra – Dövlət
-                        Komitəsi) təsisçisi olduğu “Tikilməkdə olan obyektlər müdiriyyəti” Məhdud Məsuliyyətli
-                        Cəmiyyətinin əsasında Nazirliyin tabeliyində “Azərbaycan Respublikası İqtisadiyyat Nazirliyinin
-                        Tikinti-Təchizat Birliyi” Məhdud Məsuliyyətli Cəmiyyəti yaradılsın.
-                        5. Dövlət Komitəsinin tabeliyindəki “İnformasiya Texnologiyaları və Məlumat İdarəetmə Mərkəzi”
-                        Məhdud Məsuliyyətli Cəmiyyəti Nazirliyin tabeliyinə verilsin.
-                        5. Dövlət Komitəsinin tabeliyindəki “İnformasiya Texnologiyaları və Məlumat İdarəetmə Mərkəzi”
-                        Məhdud Məsuliyyətli Cəmiyyəti Nazirliyin tabeliyinə verilsin.5. Dövlət Komitəsinin tabeliyindəki
-                        “İnformasiya Texnologiyaları və Məlumat İdarəetmə Mərkəzi” Məhdud Məsuliyyətli Cəmiyyəti
-                        Nazirliyin tabeliyinə verilsin. 5. Dövlət Komitəsinin tabeliyindəki “İnformasiya Texnologiyaları
-                        və Məlumat İdarəetmə Mərkəzi” Məhdud Məsuliyyətli Cəmiyyəti Nazirliyin tabeliyinə verilsin.</p>
-                </div>
-                <div class="geriButton" onclick="goBack()">
-                    <p style="padding: 5px 10px; ">← Geri</p>
-                </div>
+        <section class="service-section">
+            <h2 class="service-section-title">Torpaq və bitkilərin laborator analizləri</h2>
+            <div class="service-image-box">
+                <img src="/img/xidemetler3.jpg" alt="Torpaq və bitkilərin laborator analizləri">
             </div>
+            <p class="service-section-subtitle">Torpaq və bitkilərin laborator analizləri üzrə aşağıdakı xidmətlərdən istifadə edə bilərsiniz:</p>
+            <ol class="service-list">
+                <li><span>Hüquqi və fiziki şəxslərin mülkiyyətində, istifadəsində və icarəsində olan əkin torpaqlarında aparılan ümumi analizlərlə (humus, torpağın qranulometrik tərkibi, pH, hiqroskopik nəmlik, udulmuş əsaslar Ca,Mg,Na, karbonatlıq, şorlaşma və şorakətləşmiş torpaqların analizləri) yanaşı, aqrokimyəvi analizlərin (N-azot, P-fosfor, K-kalium) aparılması</span></li>
+                <li><span>Hüquqi və fiziki şəxslərin mülkiyyətində, istifadəsində və icarəsində olan torpaqlarda aqrokimyəvi tədqiqatın aparılması zamanı əlavə analizlərin (mikroelementlər - Mis (Cu), Sink (Zn), Kükürd (S), Manqan (Mn), Bor (B) və s.) aparılması</span></li>
+                <li><span>Hüquqi və fiziki şəxslərin mülkiyyətində, istifadəsində və icarəsində olan torpaqlarda əsaslı tikinti işlərinin aparılması ilə əlaqədar olaraq torpaqlarda struktur analizinin (süxurların qatları üzrə) aparılması</span></li>
+                <li><span>Hüquqi və fiziki şəxslərin müraciətləri əsasında torpaqların bonitet balı və keyfiyyət göstəriciləri barədə məlumatların hazırlanması</span></li>
+                <li><span>İcarəyə və istifadəyə verilən torpaqların icarə müddəti bitdiyi zaman və ya yenidən ona icarəyə verilən zaman icarəçinin hesabına torpaqların və bitki örtüyünün keyfiyyətinə nəzarət etmək və yaxşılaşdırılmasına dair layihələrin hazırlanması</span></li>
+            </ol>
+        </section>
+    </div>
+</main>
 
-        </div>
-
-        <div class="pageButtons">
-            <button class="pageBtn activeBtn" onclick="changePage(0)">1</button>
-            <button class="pageBtn" onclick="changePage(1)">2</button>
-        </div>
 
 
 
