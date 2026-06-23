@@ -47,6 +47,7 @@
             line-height: 56px;
             letter-spacing: 0%;
             color: #1C4734;
+            margin: 20px 0
 
         }
 
@@ -130,6 +131,189 @@
                 font-size: 16px;
             }
         }
+
+
+
+
+
+
+
+
+/* =========================================================================
+   LAYİHƏLƏR SƏHİFƏSİ - MAİN VƏ GRİD STRUKTURU
+   ========================================================================= */
+.projects-page {
+    background-color: #ffffff;
+    padding: 40px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.projects-container {
+    max-width: 1340px; /* 654px kartların yan-yana rahat yerləşməsi üçün ideal genişlik */
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Masaüstü ekranlar üçün 2 sütunlu nizamlı Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/* 🔥 LINK KARTLARI (Tam olaraq 654x368 nisbətində, mütənasib hündürlük) */
+.project-item {
+    display: block;          /* Linkin bütün blok boyu kliklənə bilməsi üçün */
+    text-decoration: none;   /* Standart göy alt xətti tamamilə silir */
+    position: relative;
+    width: 100%;
+    /* Sabit hündürlük şəkilləri çox uzadır. 
+       Bu kod maketdəki 654x368 nisbətini bütün ekranlarda mükəmməl saxlayır */
+    aspect-ratio: 654 / 368; 
+    overflow: hidden;
+    background-color: #000000; /* Şəkil yüklənənə qədər arxa fon */
+    z-index: 1;              /* Menyunun altında qalmaması üçün təhlükəsiz qat */
+    cursor: pointer;
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;       /* Şəkillərin dartılmasını və ya əzilməsini önləyir */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effekti: Üstünə gəldikdə şəklin içəridə yüngül böyüməsi */
+.project-item:hover img {
+    transform: scale(1.03);
+}
+
+/* 🔥 QARA YARIMŞƏFFAF MƏTN PARÇASI (Maketdəki kimi alt qradiyent) */
+.project-text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 20px 15px 20px; /* Yazının rahat oxunması üçün aşağıdan nizamlanma */
+    box-sizing: border-box;
+    /* Şəklin altını qaraldan incə qradiyent */
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75)); 
+}
+
+.project-text-overlay p {
+    margin: 0;
+    color: #ffffff !important;       /* Mətnin rəngini ağ rəngdə sabitləyirik */
+    font-size: 0.92rem;
+    line-height: 1.4;
+    font-weight: 400;
+    text-align: left;
+    
+    /* Çox uzun yazılarda mətnin kartdan aşağı daşmasını əngəlləyən qızıl kod */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;           /* Maksimum 2 sətir göstər, qalanına 3 nöqtə qoy */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* =========================================================================
+   PAGINATION (SƏHİFƏLƏMƏ BÖLMƏSİ)
+   ========================================================================= */
+.projects-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.pag-arrow, .pag-btn {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #4a5568;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.pag-btn:hover, .pag-arrow:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+}
+
+/* Aktiv səhifə indikatoru (Sizin dizayndakı yaşıl rəng) */
+.pag-btn.pag-active {
+    background: #2ecc71;
+    color: #ffffff;
+    border-color: #2ecc71;
+}
+
+.pag-dots {
+    color: #a0aec0;
+    padding: 0 5px;
+}
+
+/* =========================================================================
+   RESPONSIVE - TABLET DÜZƏLİŞİ (Maksimum 992px)
+   ========================================================================= */
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* Yan-yana 2 sütun */
+        gap: 20px;
+    }
+}
+
+/* =========================================================================
+   RESPONSIVE - MOBİL DÜZƏLİŞİ (Maksimum 576px)
+   ========================================================================= */
+@media (max-width: 576px) {
+    .projects-container {
+        padding: 0 15px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Tam ekran 1 sütun rejim */
+        gap: 16px;
+    }
+
+    .project-text-overlay {
+        padding: 15px 12px;
+    }
+
+    .project-text-overlay p {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .pag-arrow, .pag-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 
 </head>
@@ -282,104 +466,69 @@
 
 
 
-    <main>
-        <p class="titleText">Tez-tez verilən suallar</p>
+   
 
+ <main id="main" class="projects-page">
+    <div class="projects-container">
+        <p class="titleText">Layihələr</p>
 
-        <div class="faq-container">
-
-
-            <div class="accordion">
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>AzPOS-a qoşulmaq üçün nə etməliyəm?</span>
-                        <i class="fa-solid fa-plus icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>AzPOS sisteminə qoşulmaq üçün tərəfinizdən müraciət məktubu hazırlanaraq (Hüquqi və ya fiziki
-                            şəxs kimi) "Kadastr və Yerquruluşu Layihə-Tədqiqat Mərkəzi" MMC-yə rəsmi olaraq müraciət
-                            edilməlidir.</p>
-                    </div>
+        <div class="projects-grid" id="projectsGrid">
+            
+            <a href="layihe-etrafli.htm?id=1" class="project-item">
+                <img src="/img/LayihələrImg2.png" alt="Naxçıvan MR">
+                <div class="project-text-overlay">
+                    <p>Naxçıvan MR ərazisində AzPOS şəbəkəsinin yaradılması</p>
                 </div>
+            </a>
 
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>AzPOS ilə işğaldan azad edilən ərazilərdə ölçmə işləri aparmaq mümkündürmü?</span>
-                        <i class="fa-solid fa-plus icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Bəli, müvafiq icazələr alındıqdan sonra AzPOS şəbəkəsi vasitəsilə həmin ərazilərdə yüksək
-                            dəqiqlikli koordinat ölçmələri aparmaq mümkündür.</p>
-                    </div>
+            <a href="layihe-etrafli.htm?id=2" class="project-item">
+                <img src="/img/LayihələrImg3.jpg" alt="AzPOS">
+                <div class="project-text-overlay">
+                    <p>AzPOS xidmətlərinin elektronlaşdırılması</p>
                 </div>
+            </a>
 
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Torpaq idarəçiliyi və torpaq istifadəsinin planlaşdırılması</span>
-                        <i class="fa-solid fa-plus icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Bu xidmət çərçivəsində torpaq sahələrinin təyinatına uyğun istifadəsi və dövlət torpaq
-                            kadastrı məlumatları əsasında planlaşdırma işləri icra edilir.</p>
-                    </div>
+            <a href="layihe-etrafli.htm?id=3" class="project-item">
+                <img src="/img/LayihələrImg4.jpg" alt="ÜRİS">
+                <div class="project-text-overlay">
+                    <p>ÜRİS-in müasir standartlar əsasında yeni texnologiyaların tətbiqi əsasında təkmilləşdirilməsi</p>
                 </div>
+            </a>
 
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Hava fotoqrafiyası və ortofotokartların yaradılması</span>
-                        <i class="fa-solid fa-plus icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quidem quo nobis perferendis
-                            adipisci rem, amet dolore, labore optio natus dicta ducimus accusamus quasi exercitationem?
-                            Asperiores ex quam magni id dolor quis doloribus eaque reiciendis vitae hic deleniti
-                            impedit, explicabo a cumque quisquam voluptatum, nisi inventore quidem ea. Corporis,
-                            accusamus.</p>
-                    </div>
+            <a href="layihe-etrafli.htm?id=4" class="project-item">
+                <img src="/img/LayihələrImg5.jpg" alt="Xocalı və Xocavənd">
+                <div class="project-text-overlay">
+                    <p>Xocalı və Xocavənd rayonları ərazisində aparılan torpaqların elektron uçotu işləri</p>
                 </div>
+            </a>
 
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Torpaq məsləhət və hüquqi xidmətlər</span>
-                        <i class="fa-solid fa-plus icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quidem quo nobis perferendis
-                            adipisci rem, amet dolore, labore optio natus dicta ducimus accusamus quasi exercitationem?
-                            Asperiores ex quam magni id dolor quis doloribus eaque reiciendis vitae hic deleniti
-                            impedit, explicabo a cumque quisquam voluptatum, nisi inventore quidem ea. Corporis,
-                            accusamus.</p>
-                    </div>
+            <a href="layihe-etrafli.htm?id=5" class="project-item">
+                <img src="/img/LayihələrImg6.jpg" alt="Meliorasiya">
+                <div class="project-text-overlay">
+                    <p>Meliorasiya və Su Təsərrüfatı" ASC tərəfindən həyata keçirilən Yengicə su anbarının işçi layihəsinə əsasən Qəbələ rayonunda su anbarının, suaparıcı və sağ-sol sahil magistral kanallarının, gil karxanasının və elektrik xəttinin tikintisi</p>
                 </div>
+            </a>
 
-
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <span>Ləğv edilmiş Dövlət Torpaq və Xəritəçəkmə Komitəsi tərəfindən tərtib edilmiş olan və ölçü
-                            sənədin ilkin torpaq ayırma sənədləri üçün ƏMDX-nin hansı struktur bölməsinə müraciət
-                            etməliyəm?</span>
-                        <i class="fa-solid fa-plus icon"></i>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quidem quo nobis perferendis
-                            adipisci rem, amet dolore, labore optio natus dicta ducimus accusamus quasi exercitationem?
-                            Asperiores ex quam magni id dolor quis doloribus eaque reiciendis vitae hic deleniti
-                            impedit, explicabo a cumque quisquam voluptatum, nisi inventore quidem ea. Corporis,
-                            accusamus.</p>
-                    </div>
+            <a href="layihe-etrafli.htm?id=6" class="project-item">
+                <img src="/img/LayihələrImg7.jpg" alt="Əlicançay">
+                <div class="project-text-overlay">
+                    <p>Əlicançay su anbarının tikintisi</p>
                 </div>
-            </div>
+            </a>
+
+
+
+
+            
+
         </div>
 
 
 
+    </div>
+</main>
 
-    </main>
+
 
     <footer>
         <div class="footerTop">
@@ -451,6 +600,7 @@
 
     <script src="./js/javascript.js"></script>
     <script>
+
 
         document.querySelectorAll('.accordion-header').forEach(button => {
             button.addEventListener('click', () => {
