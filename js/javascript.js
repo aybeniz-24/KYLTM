@@ -546,3 +546,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // İlk açılışda 1-ci səhifəni yüklə
     switchGalPage(1);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
